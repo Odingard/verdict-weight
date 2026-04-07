@@ -4,6 +4,7 @@
 
 [![SSRN](https://img.shields.io/badge/SSRN-6532658-blue)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6532658)
 [![USPTO](https://img.shields.io/badge/USPTO-99747827-green)](https://tmsearch.uspto.gov)
+[![PyPI](https://img.shields.io/pypi/v/verdict-weight)](https://pypi.org/project/verdict-weight/)
 [![License](https://img.shields.io/badge/License-Proprietary-red)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](https://python.org)
 
