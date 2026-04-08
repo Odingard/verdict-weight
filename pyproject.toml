@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "verdict-weight"
 version = "1.0.1"
-description = "VERDICT WEIGHT™ — Context-Adaptive Multi-Source Confidence Synthesis. 57.8% adversarial suppression. N=10,000 validated. 12 domain profiles."
+description = "VERDICT WEIGHT™ — Context-Adaptive Multi-Source Confidence Synthesis. Patent Pending #64/032,606. 251 tests, 295,000+ scenarios validated. 57.8% adversarial suppression. 12 domain profiles."
 readme = "README.md"
 license = {text = "Proprietary — See LICENSE"}
 authors = [

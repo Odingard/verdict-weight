@@ -5,7 +5,9 @@
 [![SSRN](https://img.shields.io/badge/SSRN-6532658-blue)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6532658)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19447547-blue)](https://doi.org/10.5281/zenodo.19447547)
 [![USPTO](https://img.shields.io/badge/USPTO-99747827-green)](https://tmsearch.uspto.gov)
+[![Patent Pending](https://img.shields.io/badge/Patent%20Pending-64%2F032%2C606-orange)](https://www.uspto.gov)
 [![PyPI](https://img.shields.io/badge/PyPI-verdict--weight-purple)](https://pypi.org/project/verdict-weight/)
+[![Tests](https://img.shields.io/badge/Tests-251%2F251%20passing-brightgreen)](https://github.com/Odingard/verdict-weight)
 [![License](https://img.shields.io/badge/License-Proprietary-red)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](https://python.org)
 
@@ -222,12 +224,15 @@ Results are fully reproducible:
 
 Master seed: **42** (never changes — all results are deterministic)
 
+**Test coverage:** 251 tests passing across 11 suites, validated against 295,000+ scenarios including Monte Carlo stress testing, adversarial optimization attacks, property-based blind testing, and statistical robustness across 100 independent random seeds.
+
 ---
 
 ## Legal
 
 VERDICT WEIGHT™ is a trademark of Six Sense Enterprise Services LLC (Odingard Security).
 USPTO Serial Number: 99747827.
+Patent Pending — Application #64/032,606.
 
 © 2026 Six Sense Enterprise Services LLC. All rights reserved.
 
