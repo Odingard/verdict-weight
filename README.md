@@ -13,6 +13,8 @@
 
 > *"Calibrated multi-source confidence scoring is not an optional feature of autonomous AI systems — it is a foundational architectural requirement."*
 
+### [📄 Full Specification](https://odingardsecurity.mintlify.app) · [🎯 Try the Interactive Demo](https://odingard.github.io/spot-the-fake/)
+
 ---
 
 ## The Problem
