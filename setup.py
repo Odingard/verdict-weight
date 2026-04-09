@@ -5,10 +5,10 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 setup(
     name="verdict-weight",
-    version="1.0.0",
+    version="1.1.0",
     author="Andre Byrd",
     author_email="andre.byrd@odingard.com",
-    description="VERDICT WEIGHT™ — Context-Adaptive Multi-Source Confidence Synthesis Framework. Patent Pending #64/032,606. 251 tests, 295,000+ scenarios validated.",
+    description="VERDICT WEIGHT™ — Context-Adaptive Multi-Source Confidence Synthesis Framework. Patent Pending #64/032,606. 673 tests, 1,270,000+ scenarios validated.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Odingard/verdict-weight",

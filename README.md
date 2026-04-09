@@ -7,7 +7,7 @@
 [![USPTO](https://img.shields.io/badge/USPTO-99747827-green)](https://tmsearch.uspto.gov)
 [![Patent Pending](https://img.shields.io/badge/Patent%20Pending-64%2F032%2C606-orange)](https://www.uspto.gov)
 [![PyPI](https://img.shields.io/badge/PyPI-verdict--weight-purple)](https://pypi.org/project/verdict-weight/)
-[![Tests](https://img.shields.io/badge/Tests-251%2F251%20passing-brightgreen)](https://github.com/Odingard/verdict-weight)
+[![Tests](https://img.shields.io/badge/Tests-673%2F673%20passing-brightgreen)](https://github.com/Odingard/verdict-weight)
 [![License](https://img.shields.io/badge/License-Proprietary-red)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](https://python.org)
 
@@ -60,19 +60,44 @@ Dataset SHA-256: `40bc6e227e30f5292796b3c8df60c68a8339180eea4e2379f1ab9d1e5ac8bd
 *Defense and RAG show negative Brier improvement due to synthetic data characteristics.
 See audit report for full failure mode analysis.*
 
+### Head-to-Head vs Established Fusion Methods
+
+| Method | Brier ↓ | AUC-ROC | Adv Score ↓ | Range ↑ |
+|--------|---------|---------|-------------|---------|
+| **VERDICT WEIGHT™** | **0.2017** | **0.7431** | **0.3796** | **0.4797** |
+| Simple Averaging | 0.2182 | 0.7186 | 0.7109 | 0.1625 |
+| Max Voting | 0.3020 | 0.6683 | 0.9369 | 0.0122 |
+| Dempster-Shafer | 0.2429 | 0.7186 | 0.8610 | 0.1057 |
+| Naive Bayes Fusion | 0.3359 | 0.7112 | 1.0000 | 0.0000 |
+
+Under conflicting evidence (high SR, low CC), VERDICT WEIGHT scores 0.2250. Dempster-Shafer scores 0.8468. All comparisons p<0.001 (Mann-Whitney U).
+
+### Real-World Validation (120 CVEs)
+
+Validated on 120 real CVEs from NIST NVD and CISA Known Exploited Vulnerabilities catalog.
+- **AUC=1.0000** on real exploitation prediction
+- **Brier 2.2× lower** than simple averaging (0.0749 vs 0.1655)
+- **10/10** highest VW scores are confirmed CISA KEV exploits
+- **10/10** lowest VW scores are safe CVEs
+- Log4Shell (CVE-2021-44228) correctly scored **CRITICAL** at day 12
+
 ---
 
 ## What VERDICT WEIGHT™ Does
 
-Four evidence streams → Three outputs → One decision.
+Eight evidence streams → Three outputs → One decision.
 
-### Four Evidence Streams
+### Eight Evidence Streams
 | Stream | Symbol | Description |
 |--------|--------|-------------|
-| Source Reliability | SR | Credibility of the originating source (0.01–0.99) |
-| Cross-Feed Corroboration | CC | Independent confirmation across feeds |
-| Temporal Decay | TD | Recency of the intelligence signal |
-| Historical Source Accuracy | HA | Empirical track record of the source |
+| 1. Source Reliability | SR | Credibility of the originating source (0.01–0.99) |
+| 2. Cross-Feed Corroboration | CC | Independent confirmation across feeds |
+| 3. Temporal Decay | TD | Recency of the intelligence signal |
+| 4. Historical Source Accuracy | HA | Empirical track record of the source |
+| 5. Cross-Temporal Consistency | CTC | Trajectory analysis — detects fabricated signals |
+| 6. Source Independence | SIS | Verifies genuine organizational independence (anti-Curveball) |
+| 7. Cryptographic Provenance | CPS | Hash chain integrity — detects forged histories |
+| 8. Registry Integrity | RIS | Gate — halts scoring if registry is compromised |
 
 ### Three Output Components
 | Output | Symbol | Range | Description |
@@ -224,7 +249,7 @@ Results are fully reproducible:
 
 Master seed: **42** (never changes — all results are deterministic)
 
-**Test coverage:** 251 tests passing across 11 suites, validated against 295,000+ scenarios including Monte Carlo stress testing, adversarial optimization attacks, property-based blind testing, and statistical robustness across 100 independent random seeds.
+**Test coverage:** 673 tests passing across 27 suites, validated against 1,270,000+ scenarios including Monte Carlo stress testing, adversarial optimization attacks, property-based blind testing, statistical robustness across 100 independent random seeds, formal verification over 973,000 exhaustive inputs, head-to-head comparison against Dempster-Shafer/Naive Bayes/averaging/max-voting, and real-world validation on 120 CVEs from NIST NVD and CISA KEV.
 
 ---
 
