@@ -70,15 +70,21 @@ def _parse_iso_date(s: str) -> float:
 def _cve_to_inputs(
     cve: Dict[str, Any],
     registry: SourceRegistry,
+    reference_time: float,
 ) -> UnifiedInputs:
     """Deterministic mapping from a KEV record to unified composer inputs.
+
+    ``reference_time`` is the wall-clock anchor used to compute Temporal
+    Decay (TD); pinning it to the snapshot's ``dateReleased`` makes the
+    mapping reproducible across years and machines (otherwise TD would
+    depend on ``datetime.now()`` and drift over time).
 
     Mapping rationale:
     - **SR** = 0.95 — NVD/CISA are authoritative reliability sources.
     - **CC** = 0.85 if ransomware-known, else 0.75 — KEV inclusion is
       itself a corroboration signal.
-    - **TD** decays from 1.0 at dateAdded with λ=0.0005/day. Recent
-      KEV entries are higher-confidence than ones added years ago.
+    - **TD** decays from 1.0 at dateAdded with λ=0.0005/day, anchored to
+      ``reference_time``. Recent KEV entries are higher-confidence.
     - **HA** = 0.93 — NVD historical accuracy at the source level.
     - Two pseudo-sources (NVD + CISA) with distinct institutions and
       geographies — these are genuinely independent feeds.
@@ -87,7 +93,7 @@ def _cve_to_inputs(
     """
     cve_id = cve["cveID"]
     date_added_ts = _parse_iso_date(cve["dateAdded"])
-    days_since = max(0.0, (datetime.now(timezone.utc).timestamp() - date_added_ts) / 86400.0)
+    days_since = max(0.0, (reference_time - date_added_ts) / 86400.0)
     ransom = cve.get("knownRansomwareCampaignUse", "Unknown") == "Known"
 
     SR = 0.95
@@ -151,6 +157,10 @@ def run(
     snapshot = json.loads(SNAPSHOT_PATH.read_text())
     catalog: List[Dict[str, Any]] = snapshot["vulnerabilities"]
 
+    # Anchor TD to the snapshot's release time so the harness reproduces
+    # the same numbers across years and machines.
+    reference_time = _parse_iso_date(snapshot["dateReleased"].replace("Z", "+00:00"))
+
     rng = random.Random(seed)
     sample_pool = list(catalog)
     rng.shuffle(sample_pool)
@@ -166,7 +176,7 @@ def run(
 
     t0 = time.perf_counter()
     for cve in sample_cves:
-        inputs = _cve_to_inputs(cve, registry)
+        inputs = _cve_to_inputs(cve, registry, reference_time)
         r = composer.score(inputs)
         cw = 0.0 if r.halted else float(r.cw_certified)
         vw_cw.append(cw)
@@ -199,7 +209,7 @@ def run(
     ):
         bc = []
         for cve in sample_cves:
-            inp = _cve_to_inputs(cve, registry)
+            inp = _cve_to_inputs(cve, registry, reference_time)
             bc.append(fn([inp.SR, inp.CC, inp.TD, inp.HA]))
         bc_arr = np.array(bc, dtype=float)
         baseline_results[name] = {
@@ -218,6 +228,8 @@ def run(
             "catalog_version": snapshot.get("catalogVersion"),
             "catalog_count": snapshot.get("count"),
             "catalog_release_date": snapshot.get("dateReleased"),
+            "reference_time_unix": reference_time,
+            "reference_time_iso": datetime.fromtimestamp(reference_time, tz=timezone.utc).isoformat(),
             "snapshot_path": str(SNAPSHOT_PATH.relative_to(Path(__file__).resolve().parent.parent)),
         },
         "config": {
@@ -276,7 +288,8 @@ def _render_md(s: Dict[str, Any]) -> str:
                f"{vw_['false_suppression_count']}/{cfg['n']} "
                f"({vw_['false_suppression_rate']*100:.2f}%)")
     out.append(f"- **HALT events:** {vw_['halt_count']} {vw_['halt_breakdown']}")
-    out.append(f"- **Throughput:** {vw_['throughput_cves_per_sec']:,.1f} CVEs/sec\n")
+    if vw_.get("throughput_cves_per_sec") is not None:
+        out.append(f"- **Throughput:** {vw_['throughput_cves_per_sec']:,.1f} CVEs/sec\n")
     out.append("")
     out.append("## Baseline comparison\n")
     out.append("| Method | Mean CW | Median CW | False-suppression rate |")

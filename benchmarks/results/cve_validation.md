@@ -11,19 +11,19 @@
 
 ## VERDICT WEIGHT outcomes
 
-- **Mean CW:** 0.6895 (95% CI: [0.6835, 0.6966])
-- **Median CW:** 0.6862
+- **Mean CW:** 0.6895 (95% CI: [0.6835, 0.6967])
+- **Median CW:** 0.6863
 - **CW range:** [0.6432, 0.7932]
 - **False suppressions (0.3 threshold):** 0/120 (0.00%)
 - **HALT events:** 0 {}
-- **Throughput:** 3,903.1 CVEs/sec
+- **Throughput:** 5,968.4 CVEs/sec
 
 
 ## Baseline comparison
 
 | Method | Mean CW | Median CW | False-suppression rate |
 |---|---|---|---|
-| VERDICT_WEIGHT | 0.6895 | 0.6862 | 0.00% |
+| VERDICT_WEIGHT | 0.6895 | 0.6863 | 0.00% |
 | DEMPSTER_SHAFER | 0.9997 | 0.9997 | 0.00% |
 | NAIVE_BAYES | 0.9991 | 0.9992 | 0.00% |
 | SIMPLE_AVERAGING | 0.8188 | 0.8027 | 0.00% |
