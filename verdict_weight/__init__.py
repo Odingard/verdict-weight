@@ -39,8 +39,35 @@ from .core import (
     AdaptiveLearner,
     WEIGHT_PROFILES,
 )
+from .streams import (
+    # Stream 5 (CTC)
+    CTCAnalyzer,
+    TrajectoryPoint,
+    TrajectoryPattern,
+    CTCResult,
+    # Stream 6 (SIS)
+    SISAnalyzer,
+    Source,
+    SISResult,
+    # Stream 7 (CPS)
+    CPSVerifier,
+    ProvenanceStep,
+    CPSResult,
+    build_provenance_chain,
+    # Stream 8 (RIS)
+    RISVerifier,
+    SourceRegistry,
+    RISResult,
+)
+from .unified import (
+    UnifiedComposer,
+    UnifiedInputs,
+    UnifiedResult,
+    DeploymentTier,
+    compose,
+)
 
-__version__ = "1.0.0"
+__version__ = "1.2.0"
 __author__ = "Andre Byrd"
 __email__ = "andre.byrd@odingard.com"
 __url__ = "https://github.com/Odingard/verdict-weight"
@@ -52,6 +79,7 @@ __trademark__ = (
 )
 
 __all__ = [
+    # Commercial tier (Streams 1–4)
     "VerdictWeight",
     "VerdictResult",
     "ContextType",
@@ -60,4 +88,26 @@ __all__ = [
     "VerdictEngine",
     "AdaptiveLearner",
     "WEIGHT_PROFILES",
+    # Adversarial detection tier (Stream 5)
+    "CTCAnalyzer",
+    "TrajectoryPoint",
+    "TrajectoryPattern",
+    "CTCResult",
+    # Government tier (Streams 6–8)
+    "SISAnalyzer",
+    "Source",
+    "SISResult",
+    "CPSVerifier",
+    "ProvenanceStep",
+    "CPSResult",
+    "build_provenance_chain",
+    "RISVerifier",
+    "SourceRegistry",
+    "RISResult",
+    # Unified composition
+    "UnifiedComposer",
+    "UnifiedInputs",
+    "UnifiedResult",
+    "DeploymentTier",
+    "compose",
 ]
