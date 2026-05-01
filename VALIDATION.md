@@ -67,7 +67,7 @@ Run environment (this report):
 | Adversarial fraction | 0.50 | 0.50 | exact |
 | VW Brier score | 0.0412 (§8.1) | **0.0536** | +0.0124 (worse than claimed) |
 | VW Reliability (REL) | 0.0019 (§8.1) | **0.0531** | +0.0512 (worse than claimed) |
-| VW AUC-ROC | 1.0 (§8.4) | **1.0000** | exact |
+| VW AUC-ROC | 1.0 (§8.4) | **1.0000** | exact (after AUC tied-rank fix; see §11) |
 | VW Cohen's d (legit vs adv) | −2.82 (§8.2 vs DS) | **−6.66** | substantially better than claimed |
 | VW Welch t-statistic | not specified | **−332.77** | n/a |
 | VW Welch p | < 0.001 (§8.2) | **0.0** (below double precision) | consistent |
@@ -107,7 +107,7 @@ Run environment (this report):
 | Dempster-Shafer | 0.9974 | 0.9987 | 0.4974 | 0.2480 | −0.5576 | 0.6311 |
 | Naive Bayes | 0.9763 | 0.9963 | 0.4779 | 0.2420 | −0.5551 | 0.6352 |
 | Simple Averaging | 0.7634 | 0.8065 | 0.3143 | 0.0928 | −0.6647 | 0.6289 |
-| Max Voting | 0.9355 | 1.0000 | 0.4472 | 0.2250 | −0.6577 | 0.3085 |
+| Max Voting | 0.9355 | 1.0000 | 0.4472 | 0.2250 | −0.6577 | 0.6000 |
 
 ### Comparison vs Paper 3 §8.2 Table 4
 
@@ -166,11 +166,11 @@ RIS/CPS halt logic is correctly anchored to actual tamper signals only.
 
 **Reproducer:** ``python -m pytest tests/``
 
-**Total:** 157 tests passing across 4 categories.
+**Total:** 172 tests passing across 5 categories.
 
 | Category | Count | Coverage |
 |---|---|---|
-| Unit (`tests/unit/`) | 124 | Streams 1–8 individually |
+| Unit (`tests/unit/`) | 139 | Streams 1–8 individually + metrics |
 | Integration (`tests/integration/`) | 12 | Full eight-stream composition + HALT propagation |
 | Property (`tests/property/`) | 13 | Range, monotonicity, NaN-freedom, tier ordering |
 | Regression (`tests/regression/`) | 6 | Per-attack-class outcome bounds |
@@ -180,7 +180,7 @@ RIS/CPS halt logic is correctly anchored to actual tamper signals only.
 
 | Paper 3 claim | Harness output | Divergence |
 |---|---|---|
-| 673 tests | **157 tests** | **−516** |
+| 673 tests | **172 tests** | **−501** |
 | 27 suites | **5 categories / 9 modules** | structurally smaller |
 
 **Explanation:** Paper 3's 673-test claim does not reflect the v1.2.0
@@ -274,6 +274,38 @@ specific numbers. Where the harness diverges from Paper 3, the harness
 is canonical.
 
 ---
+
+## 11. AUC tied-rank fix (post-PR-#1 review)
+
+During PR review, an automated review surfaced a real bug in
+``validation.metrics.auc_roc``: the Mann–Whitney U computation used
+``np.argsort`` to assign consecutive integer ranks but did **not**
+average ranks across tied scores. For score vectors with many ties
+(notably MAX_VOTING, which produces binary 0/1 outputs and therefore
+is nearly all ties), this systematically biased the AUC.
+
+Minimal reproducer of the original bug:
+
+```python
+>>> auc_roc([1,1,0,0], [0.5, 0.5, 0.5, 0.5])  # all tied
+0.0   # WRONG — should be 0.5
+```
+
+The fix uses mid-rank averaging (``avg_rank = (i+1+j)/2`` for each tied
+run) and a stable mergesort. Verified against five hand-computed cases
+in ``tests/unit/test_metrics.py::TestAUCTiedRanks``.
+
+Numbers in this report reflect the **post-fix** harness. Specifically:
+
+* MAX_VOTING AUC (synthetic): 0.998 (pre-fix) → **0.6000** (post-fix)
+* MAX_VOTING AUC (IEEE): 0.3085 (pre-fix) → **0.6000** (post-fix)
+
+VW AUC = 1.0000 in both surfaces is unchanged: VW scores have no
+fully-tied runs that intersect class labels in this dataset, so the
+bug did not affect VW's number.
+
+All non-MV baseline AUCs shifted by less than 0.005 (these methods
+produce continuous scores with few exact ties in this dataset).
 
 ## 10. Reproducibility metadata
 

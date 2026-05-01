@@ -16,7 +16,7 @@
 - **CW range:** [0.6432, 0.7932]
 - **False suppressions (0.3 threshold):** 0/120 (0.00%)
 - **HALT events:** 0 {}
-- **Throughput:** 5,805.1 CVEs/sec
+- **Throughput:** 3,903.1 CVEs/sec
 
 
 ## Baseline comparison

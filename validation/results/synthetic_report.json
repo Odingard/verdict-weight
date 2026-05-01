@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at_utc": "2026-05-01T05:37:19Z",
+  "generated_at_utc": "2026-05-01T05:52:46Z",
   "platform": {
     "python": "3.12.8",
     "system": "Linux",
@@ -20,8 +20,8 @@
     "deployment_tier": "government"
   },
   "wall_seconds": {
-    "data_generation": 1.6374,
-    "vw_scoring": 2.384
+    "data_generation": 1.8321,
+    "vw_scoring": 2.6295
   },
   "halt_counts": {
     "RIS": 1000,
@@ -90,7 +90,7 @@
       "cohens_d": -0.5426107802939363,
       "welch_t": -27.130539014696815,
       "welch_p": 0.0,
-      "wall_seconds": 0.1795
+      "wall_seconds": 0.1983
     },
     "NB": {
       "name": "Naive_Bayes",
@@ -122,7 +122,7 @@
       "cohens_d": -0.5498499187653829,
       "welch_t": -27.492495938269148,
       "welch_p": 0.0,
-      "wall_seconds": 0.3535
+      "wall_seconds": 0.392
     },
     "SA": {
       "name": "Simple_Averaging",
@@ -154,7 +154,7 @@
       "cohens_d": -0.6713458681896983,
       "welch_t": -33.56729340948492,
       "welch_p": 0.0,
-      "wall_seconds": 0.226
+      "wall_seconds": 0.2692
     },
     "MV": {
       "name": "Max_Voting",
@@ -172,7 +172,7 @@
       "specificity": 1.0,
       "brier_score": 0.44546875,
       "reliability_rel": 0.2232465277777778,
-      "auc_roc": 0.99799224,
+      "auc_roc": 0.6,
       "mean_cw_adversarial": 0.93275,
       "ci95_cw_adversarial": [
         0.92869875,
@@ -186,7 +186,7 @@
       "cohens_d": -0.6575602730902864,
       "welch_t": -32.87801365451432,
       "welch_p": 0.0,
-      "wall_seconds": 0.1079
+      "wall_seconds": 0.1235
     }
   },
   "per_attack_class_cw": {

@@ -165,13 +165,22 @@ def auc_roc(y_true: Sequence[int], y_score: Sequence[float]) -> float:
     neg = y_score[y_true == 0]
     if len(pos) == 0 or len(neg) == 0:
         return 0.5
-    # Wilcoxon-Mann-Whitney
+    # Wilcoxon-Mann-Whitney with mid-rank averaging on ties.
     n_pos = len(pos)
     n_neg = len(neg)
-    # Rank all scores
-    order = np.argsort(np.concatenate([pos, neg]))
-    ranks = np.empty_like(order, dtype=float)
-    ranks[order] = np.arange(1, n_pos + n_neg + 1)
+    scores = np.concatenate([pos, neg])
+    order = np.argsort(scores, kind="mergesort")
+    sorted_scores = scores[order]
+    ranks = np.empty(n_pos + n_neg, dtype=float)
+    i = 0
+    n_total = n_pos + n_neg
+    while i < n_total:
+        j = i
+        while j < n_total and sorted_scores[j] == sorted_scores[i]:
+            j += 1
+        avg_rank = (i + 1 + j) / 2.0  # mean of ranks i+1 .. j
+        ranks[order[i:j]] = avg_rank
+        i = j
     sum_ranks_pos = float(np.sum(ranks[:n_pos]))
     u = sum_ranks_pos - n_pos * (n_pos + 1) / 2
     return float(u / (n_pos * n_neg))

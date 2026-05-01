@@ -37,8 +37,14 @@
   Bayes / Simple Averaging / Max Voting on N=2,000.
 - `benchmarks/cve_validation.py` — CISA KEV reproducer (snapshot
   `catalogVersion=2026.04.30`, 1,586 vulnerabilities). N=120 sample.
-- Test suite: 157 tests across unit (124), integration (12), property
+- Test suite: 172 tests across unit (139), integration (12), property
   (13), regression (6), performance (2).
+- Fixed `validation.metrics.auc_roc` mid-rank averaging on tied scores
+  (Mann–Whitney U). Pre-fix returned biased AUC for tied score vectors
+  (e.g. AUC=0.0 for fully-tied input). Post-fix returns the standard
+  ScikitLearn-equivalent AUC. Affects MAX_VOTING AUC only — VW and
+  continuous-score baselines were unaffected. Regression test added at
+  `tests/unit/test_metrics.py::TestAUCTiedRanks`.
 
 ### Replicated metrics (this build, seed=42)
 

@@ -40,7 +40,7 @@
       "welch_t": -12.469354997873149
     },
     "MAX_VOTING": {
-      "auc_roc": 0.30852,
+      "auc_roc": 0.6,
       "brier_score": 0.4471875,
       "ci95_cw_adversarial": [
         0.92725,
@@ -165,9 +165,9 @@
     }
   },
   "timings": {
-    "baseline_score_seconds": 0.107,
-    "vw_score_seconds": 0.486,
-    "vw_throughput_samples_per_sec": 4115.3
+    "baseline_score_seconds": 0.109,
+    "vw_score_seconds": 0.5245,
+    "vw_throughput_samples_per_sec": 3812.9
   },
   "version": "v1.2.0"
 }

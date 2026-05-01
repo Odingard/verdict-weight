@@ -1,6 +1,6 @@
 # Synthetic Validation Report — VERDICT WEIGHT
 
-- **Generated:** 2026-05-01T05:37:19Z
+- **Generated:** 2026-05-01T05:52:46Z
 - **Package version:** 1.2.0
 - **Python:** 3.12.8 on Linux 5.15.200 (x86_64)
 - **NumPy:** 2.4.4
@@ -12,8 +12,8 @@
 - **Deployment tier:** government
 
 ## Wall time
-- Data generation: 1.6374 s
-- VW scoring: 2.3840 s (throughput = 4,195 samples/sec)
+- Data generation: 1.8321 s
+- VW scoring: 2.6295 s (throughput = 3,803 samples/sec)
 
 ## HALT counts (RIS / CPS absorbing states)
 - RIS: 1000
@@ -28,7 +28,7 @@
 | Dempster-Shafer | 0.9974 | 0.9986 | 0.4974 | 0.2480 | 0.6285 | -0.5426 | 0 |
 | Naive_Bayes | 0.9776 | 0.9963 | 0.4790 | 0.2417 | 0.6346 | -0.5498 | 0 |
 | Simple_Averaging | 0.7628 | 0.8057 | 0.3139 | 0.0926 | 0.6316 | -0.6713 | 0 |
-| Max_Voting | 0.9327 | 1.0000 | 0.4455 | 0.2232 | 0.9980 | -0.6576 | 0 |
+| Max_Voting | 0.9327 | 1.0000 | 0.4455 | 0.2232 | 0.6000 | -0.6576 | 0 |
 
 ## Per-attack-class breakdown (VERDICT WEIGHT)
 
