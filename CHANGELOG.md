@@ -45,6 +45,16 @@
   ScikitLearn-equivalent AUC. Affects MAX_VOTING AUC only — VW and
   continuous-score baselines were unaffected. Regression test added at
   `tests/unit/test_metrics.py::TestAUCTiedRanks`.
+- Pinned CVE Temporal Decay (TD) reference time to the snapshot's
+  `dateReleased` field (`2026-04-30T16:30:36Z`). Pre-fix the harness
+  used `datetime.now()`, making TD wall-clock dependent and
+  contradicting VALIDATION.md's determinism claim. Post-fix the harness
+  produces the same numbers in 2026, 2027, and any future year. The
+  reference time is recorded under `snapshot.reference_time_iso` in
+  the output JSON for audit. Mean CW shifted by 3×10⁻⁵ — no change at
+  4-decimal precision; 0/120 false suppressions and 0 HALTs unchanged.
+- Added `is not None` guard on throughput formatting in the CVE
+  markdown renderer (cosmetic consistency with `ieee_head_to_head.py`).
 
 ### Replicated metrics (this build, seed=42)
 
