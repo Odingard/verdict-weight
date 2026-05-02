@@ -1,0 +1,242 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "2026-05-01T05:52:46Z",
+  "platform": {
+    "python": "3.12.8",
+    "system": "Linux",
+    "release": "5.15.200",
+    "machine": "x86_64",
+    "numpy": "2.4.4"
+  },
+  "package": {
+    "name": "verdict_weight",
+    "version": "1.2.0"
+  },
+  "configuration": {
+    "n_samples": 10000,
+    "seed": 42,
+    "legitimate_fraction": 0.5,
+    "adversarial_threshold": 0.3,
+    "deployment_tier": "government"
+  },
+  "wall_seconds": {
+    "data_generation": 1.8321,
+    "vw_scoring": 2.6295
+  },
+  "halt_counts": {
+    "RIS": 1000,
+    "CPS": 1000,
+    "none": 8000
+  },
+  "verdict_weight": {
+    "name": "VERDICT_WEIGHT",
+    "n_samples": 10000,
+    "n_adversarial": 5000,
+    "n_legitimate": 5000,
+    "threshold": 0.3,
+    "confusion": {
+      "tp": 4586,
+      "tn": 5000,
+      "fp": 0,
+      "fn": 414
+    },
+    "sensitivity": 0.9172,
+    "specificity": 1.0,
+    "brier_score": 0.053608239345166724,
+    "reliability_rel": 0.05314742996948546,
+    "auc_roc": 1.0,
+    "mean_cw_adversarial": 0.09051739359513938,
+    "ci95_cw_adversarial": [
+      0.08715223671056097,
+      0.09370032534380103
+    ],
+    "mean_cw_legitimate": 0.7146235275313643,
+    "ci95_cw_legitimate": [
+      0.7130893724411781,
+      0.7162238170545899
+    ],
+    "cohens_d": -6.65547743922678,
+    "welch_t": -332.773871961339,
+    "welch_p": 0.0
+  },
+  "baselines": {
+    "DS": {
+      "name": "Dempster-Shafer",
+      "n_samples": 10000,
+      "n_adversarial": 5000,
+      "n_legitimate": 5000,
+      "threshold": 0.3,
+      "confusion": {
+        "tp": 0,
+        "tn": 5000,
+        "fp": 0,
+        "fn": 5000
+      },
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "brier_score": 0.49742398238547786,
+      "reliability_rel": 0.24803477843149466,
+      "auc_roc": 0.62849608,
+      "mean_cw_adversarial": 0.9974145653883152,
+      "ci95_cw_adversarial": [
+        0.9973354995243439,
+        0.9975056096087953
+      ],
+      "mean_cw_legitimate": 0.9986472367735678,
+      "ci95_cw_legitimate": [
+        0.9986176058323365,
+        0.9986745155991029
+      ],
+      "cohens_d": -0.5426107802939363,
+      "welch_t": -27.130539014696815,
+      "welch_p": 0.0,
+      "wall_seconds": 0.1983
+    },
+    "NB": {
+      "name": "Naive_Bayes",
+      "n_samples": 10000,
+      "n_adversarial": 5000,
+      "n_legitimate": 5000,
+      "threshold": 0.3,
+      "confusion": {
+        "tp": 0,
+        "tn": 5000,
+        "fp": 0,
+        "fn": 5000
+      },
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "brier_score": 0.47904607660787235,
+      "reliability_rel": 0.24172509106422843,
+      "auc_roc": 0.63461928,
+      "mean_cw_adversarial": 0.9776419525046476,
+      "ci95_cw_adversarial": [
+        0.976364461313811,
+        0.978981484241733
+      ],
+      "mean_cw_legitimate": 0.9962675607086175,
+      "ci95_cw_legitimate": [
+        0.9961634473023825,
+        0.9963635896334396
+      ],
+      "cohens_d": -0.5498499187653829,
+      "welch_t": -27.492495938269148,
+      "welch_p": 0.0,
+      "wall_seconds": 0.392
+    },
+    "SA": {
+      "name": "Simple_Averaging",
+      "n_samples": 10000,
+      "n_adversarial": 5000,
+      "n_legitimate": 5000,
+      "threshold": 0.3,
+      "confusion": {
+        "tp": 0,
+        "tn": 5000,
+        "fp": 0,
+        "fn": 5000
+      },
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "brier_score": 0.313885574335819,
+      "reliability_rel": 0.09260878098986174,
+      "auc_roc": 0.63164656,
+      "mean_cw_adversarial": 0.7627910781599119,
+      "ci95_cw_adversarial": [
+        0.7604625389302382,
+        0.7653167280442658
+      ],
+      "mean_cw_legitimate": 0.8057172265491596,
+      "ci95_cw_legitimate": [
+        0.8048046285944901,
+        0.8066299617703742
+      ],
+      "cohens_d": -0.6713458681896983,
+      "welch_t": -33.56729340948492,
+      "welch_p": 0.0,
+      "wall_seconds": 0.2692
+    },
+    "MV": {
+      "name": "Max_Voting",
+      "n_samples": 10000,
+      "n_adversarial": 5000,
+      "n_legitimate": 5000,
+      "threshold": 0.3,
+      "confusion": {
+        "tp": 0,
+        "tn": 5000,
+        "fp": 0,
+        "fn": 5000
+      },
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "brier_score": 0.44546875,
+      "reliability_rel": 0.2232465277777778,
+      "auc_roc": 0.6,
+      "mean_cw_adversarial": 0.93275,
+      "ci95_cw_adversarial": [
+        0.92869875,
+        0.9369512499999999
+      ],
+      "mean_cw_legitimate": 1.0,
+      "ci95_cw_legitimate": [
+        1.0,
+        1.0
+      ],
+      "cohens_d": -0.6575602730902864,
+      "welch_t": -32.87801365451432,
+      "welch_p": 0.0,
+      "wall_seconds": 0.1235
+    }
+  },
+  "per_attack_class_cw": {
+    "legitimate": {
+      "n": 5000,
+      "mean_cw": 0.7146235275313643,
+      "median_cw": 0.7131138336097398,
+      "std_cw": 0.0551093862622231,
+      "min_cw": 0.5354019804948036,
+      "max_cw": 0.8795209702381982
+    },
+    "AC-1": {
+      "n": 1000,
+      "mean_cw": 0.2856504424637351,
+      "median_cw": 0.2869043362908455,
+      "std_cw": 0.049619909049969435,
+      "min_cw": 0.18006856530394738,
+      "max_cw": 0.3941313002322697
+    },
+    "AC-2": {
+      "n": 1000,
+      "mean_cw": 0.16626373555338061,
+      "median_cw": 0.16008307538832117,
+      "std_cw": 0.04447685642969958,
+      "min_cw": 0.10246636415070216,
+      "max_cw": 0.26304921479423454
+    },
+    "AC-3": {
+      "n": 1000,
+      "mean_cw": 0.0006727899585811885,
+      "median_cw": 0.0,
+      "std_cw": 0.00504330990597534,
+      "min_cw": 0.0,
+      "max_cw": 0.06438172801061672
+    },
+    "AC-4": {
+      "n": 1000,
+      "mean_cw": 0.0,
+      "median_cw": 0.0,
+      "std_cw": 0.0,
+      "min_cw": 0.0,
+      "max_cw": 0.0
+    },
+    "AC-5": {
+      "n": 1000,
+      "mean_cw": 0.0,
+      "median_cw": 0.0,
+      "std_cw": 0.0,
+      "min_cw": 0.0,
+      "max_cw": 0.0
+    }
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "config": {
+    "n": 2000,
+    "numpy": "2.4.4",
+    "platform": "Linux-5.15.200-x86_64-with-glibc2.35",
+    "python": "3.12.8",
+    "seed": 42
+  },
+  "harness": "ieee_head_to_head",
+  "methods": {
+    "DEMPSTER_SHAFER": {
+      "auc_roc": 0.631053,
+      "brier_score": 0.4973852269064023,
+      "ci95_cw_adversarial": [
+        0.9971914882653791,
+        0.9975587245916364
+      ],
+      "ci95_cw_legitimate": [
+        0.9986066612464211,
+        0.998735542898568
+      ],
+      "cohens_d": -0.5576465082164221,
+      "confusion": {
+        "fn": 1000,
+        "fp": 0,
+        "tn": 1000,
+        "tp": 0
+      },
+      "mean_cw_adversarial": 0.9973755128860448,
+      "mean_cw_legitimate": 0.9986703396383685,
+      "n_adversarial": 1000,
+      "n_legitimate": 1000,
+      "n_samples": 2000,
+      "name": "DEMPSTER_SHAFER",
+      "reliability_rel": 0.2480268350827713,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "threshold": 0.3,
+      "welch_p": 0.0,
+      "welch_t": -12.469354997873149
+    },
+    "MAX_VOTING": {
+      "auc_roc": 0.6,
+      "brier_score": 0.4471875,
+      "ci95_cw_adversarial": [
+        0.92725,
+        0.94425
+      ],
+      "ci95_cw_legitimate": [
+        1.0,
+        1.0
+      ],
+      "cohens_d": -0.657718545077772,
+      "confusion": {
+        "fn": 1000,
+        "fp": 0,
+        "tn": 1000,
+        "tp": 0
+      },
+      "mean_cw_adversarial": 0.9355,
+      "mean_cw_legitimate": 1.0,
+      "n_adversarial": 1000,
+      "n_legitimate": 1000,
+      "n_samples": 2000,
+      "name": "MAX_VOTING",
+      "reliability_rel": 0.22496527777777778,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "threshold": 0.3,
+      "welch_p": 0.0,
+      "welch_t": -14.70703376856158
+    },
+    "NAIVE_BAYES": {
+      "auc_roc": 0.635197,
+      "brier_score": 0.4778944667799908,
+      "ci95_cw_adversarial": [
+        0.973254820629121,
+        0.979326467915162
+      ],
+      "ci95_cw_legitimate": [
+        0.9961200384958677,
+        0.9965648474685421
+      ],
+      "cohens_d": -0.5550591390156081,
+      "confusion": {
+        "fn": 1000,
+        "fp": 0,
+        "tn": 1000,
+        "tp": 0
+      },
+      "mean_cw_adversarial": 0.9763057475996471,
+      "mean_cw_legitimate": 0.9963387747473819,
+      "n_adversarial": 1000,
+      "n_legitimate": 1000,
+      "n_samples": 2000,
+      "name": "NAIVE_BAYES",
+      "reliability_rel": 0.2420018255020089,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "threshold": 0.3,
+      "welch_p": 0.0,
+      "welch_t": -12.411499663714055
+    },
+    "SIMPLE_AVERAGING": {
+      "auc_roc": 0.628867,
+      "brier_score": 0.3143173533342339,
+      "ci95_cw_adversarial": [
+        0.7586330471295689,
+        0.7687116253834383
+      ],
+      "ci95_cw_legitimate": [
+        0.8043648830137173,
+        0.8087075134761267
+      ],
+      "cohens_d": -0.664681211780898,
+      "confusion": {
+        "fn": 1000,
+        "fp": 0,
+        "tn": 1000,
+        "tp": 0
+      },
+      "mean_cw_adversarial": 0.7634105041913358,
+      "mean_cw_legitimate": 0.8065352677192607,
+      "n_adversarial": 1000,
+      "n_legitimate": 1000,
+      "n_samples": 2000,
+      "name": "SIMPLE_AVERAGING",
+      "reliability_rel": 0.09280932980314852,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "threshold": 0.3,
+      "welch_p": 0.0,
+      "welch_t": -14.86272372909022
+    },
+    "VERDICT_WEIGHT": {
+      "auc_roc": 1.0,
+      "brier_score": 0.05318736984112329,
+      "ci95_cw_adversarial": [
+        0.08340675814062934,
+        0.09791987218536401
+      ],
+      "ci95_cw_legitimate": [
+        0.7125239761710015,
+        0.7193363122127315
+      ],
+      "cohens_d": -6.699796939359472,
+      "confusion": {
+        "fn": 72,
+        "fp": 0,
+        "tn": 1000,
+        "tp": 928
+      },
+      "mean_cw_adversarial": 0.09046195837016416,
+      "mean_cw_legitimate": 0.7157695441350442,
+      "n_adversarial": 1000,
+      "n_legitimate": 1000,
+      "n_samples": 2000,
+      "name": "VERDICT_WEIGHT",
+      "reliability_rel": 0.052726345273346804,
+      "sensitivity": 0.928,
+      "specificity": 1.0,
+      "threshold": 0.3,
+      "welch_p": 0.0,
+      "welch_t": -149.81201391852815
+    }
+  },
+  "timings": {
+    "baseline_score_seconds": 0.109,
+    "vw_score_seconds": 0.5245,
+    "vw_throughput_samples_per_sec": 3812.9
+  },
+  "version": "v1.2.0"
+}
