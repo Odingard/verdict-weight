@@ -4,7 +4,6 @@
 **Architecture:** 8-stream unified composition (Paper 3, October 2025)
 **Run date:** 2026-04-21
 **Author:** Andre Byrd
-**Co-attribution:** James (architecture), Mark (security features), Jamie (QA/QC), Michael (project management)
 
 ---
 
