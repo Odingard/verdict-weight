@@ -1,0 +1,474 @@
+{
+  "configuration": {
+    "adversarial_threshold": 0.3,
+    "deployment_tier": "government",
+    "n_samples": 10000,
+    "n_test": 3000,
+    "n_train": 7000,
+    "seed": 42,
+    "test_fraction": 0.3
+  },
+  "feature_variants": {
+    "commercial": [
+      "SR",
+      "CC",
+      "TD",
+      "HA"
+    ],
+    "eight_stream": [
+      "SR",
+      "CC",
+      "TD",
+      "HA",
+      "S_CTC",
+      "S_SIS",
+      "S_CPS",
+      "S_RIS"
+    ]
+  },
+  "generated_at_utc": "2026-05-05T10:04:12Z",
+  "harness": "learned_head_to_head",
+  "learned_baseline_metadata": {
+    "LR_COMMERCIAL": {
+      "coef_": [
+        [
+          0.7736772432222722,
+          -2.872999694014672,
+          -3.1142051078050312,
+          -3.6183278303198887
+        ]
+      ],
+      "feature_names": [
+        "SR",
+        "CC",
+        "TD",
+        "HA"
+      ],
+      "feature_variant": "commercial",
+      "hyperparameters": {
+        "C": 1.0,
+        "max_iter": 1000,
+        "solver": "lbfgs"
+      },
+      "intercept_": [
+        6.805749999200656
+      ],
+      "model_class": "LogisticRegressionBaseline",
+      "random_state": 42,
+      "training_report": {
+        "n_features": 4,
+        "n_train": 7000,
+        "train_seconds": 1.0842
+      }
+    },
+    "LR_EIGHT_STREAM": {
+      "coef_": [
+        [
+          1.5713096976760308,
+          -10.662661970985448,
+          -1.546079422624339,
+          -4.823372941521383,
+          -9.155154372257165,
+          -10.730566255635608,
+          -9.48780625069304,
+          -9.509546995077173
+        ]
+      ],
+      "feature_names": [
+        "SR",
+        "CC",
+        "TD",
+        "HA",
+        "S_CTC",
+        "S_SIS",
+        "S_CPS",
+        "S_RIS"
+      ],
+      "feature_variant": "eight_stream",
+      "hyperparameters": {
+        "C": 1.0,
+        "max_iter": 1000,
+        "solver": "lbfgs"
+      },
+      "intercept_": [
+        46.03572721030042
+      ],
+      "model_class": "LogisticRegressionBaseline",
+      "random_state": 42,
+      "training_report": {
+        "n_features": 8,
+        "n_train": 7000,
+        "train_seconds": 0.0112
+      }
+    },
+    "XGB_COMMERCIAL": {
+      "feature_importances_": [
+        0.1485169380903244,
+        0.18242906033992767,
+        0.23573948442935944,
+        0.43331456184387207
+      ],
+      "feature_names": [
+        "SR",
+        "CC",
+        "TD",
+        "HA"
+      ],
+      "feature_variant": "commercial",
+      "hyperparameters": {
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "n_estimators": 200,
+        "tree_method": "hist"
+      },
+      "model_class": "XGBoostBaseline",
+      "random_state": 42,
+      "training_report": {
+        "n_features": 4,
+        "n_train": 7000,
+        "train_seconds": 0.2552
+      }
+    },
+    "XGB_EIGHT_STREAM": {
+      "feature_importances_": [
+        0.0011616077972576022,
+        0.06460943073034286,
+        0.0006767190643586218,
+        0.2104405015707016,
+        0.39862915873527527,
+        0.32448261976242065,
+        0.0,
+        0.0
+      ],
+      "feature_names": [
+        "SR",
+        "CC",
+        "TD",
+        "HA",
+        "S_CTC",
+        "S_SIS",
+        "S_CPS",
+        "S_RIS"
+      ],
+      "feature_variant": "eight_stream",
+      "hyperparameters": {
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "n_estimators": 200,
+        "tree_method": "hist"
+      },
+      "model_class": "XGBoostBaseline",
+      "random_state": 42,
+      "training_report": {
+        "n_features": 8,
+        "n_train": 7000,
+        "train_seconds": 0.0977
+      }
+    }
+  },
+  "methods": {
+    "DEMPSTER_SHAFER": {
+      "auc_roc": 0.6259928888888889,
+      "brier_score": 0.4974471338163943,
+      "ci95_cw_adversarial": [
+        0.9972746376211507,
+        0.9975807157313781
+      ],
+      "ci95_cw_legitimate": [
+        0.9985752752991081,
+        0.998687189625039
+      ],
+      "cohens_d": -0.536030253170124,
+      "confusion": {
+        "fn": 1500,
+        "fp": 0,
+        "tn": 1500,
+        "tp": 0
+      },
+      "mean_cw_adversarial": 0.9974379593573609,
+      "mean_cw_legitimate": 0.9986317111424353,
+      "n_adversarial": 1500,
+      "n_legitimate": 1500,
+      "n_samples": 3000,
+      "name": "DEMPSTER_SHAFER",
+      "reliability_rel": 0.2480386971223932,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "threshold": 0.3,
+      "welch_p": 0.0,
+      "welch_t": -14.679793058324098
+    },
+    "LR_COMMERCIAL": {
+      "auc_roc": 0.6355182222222222,
+      "brier_score": 0.22426549504284043,
+      "ci95_cw_adversarial": [
+        0.43574756099418815,
+        0.4560753329616853
+      ],
+      "ci95_cw_legitimate": [
+        0.5473680117362262,
+        0.5570593638007697
+      ],
+      "cohens_d": -0.6776472728300622,
+      "confusion": {
+        "fn": 1200,
+        "fp": 0,
+        "tn": 1500,
+        "tp": 300
+      },
+      "mean_cw_adversarial": 0.44594746808272984,
+      "mean_cw_legitimate": 0.5521889150064727,
+      "n_adversarial": 1500,
+      "n_legitimate": 1500,
+      "n_samples": 3000,
+      "name": "LR_COMMERCIAL",
+      "reliability_rel": 0.003539414716239624,
+      "sensitivity": 0.2,
+      "specificity": 1.0,
+      "threshold": 0.3,
+      "welch_p": 0.0,
+      "welch_t": -18.558134868044135
+    },
+    "LR_EIGHT_STREAM": {
+      "auc_roc": 1.0,
+      "brier_score": 0.0012300464929148008,
+      "ci95_cw_adversarial": [
+        0.02243785793835982,
+        0.024922868346749054
+      ],
+      "ci95_cw_legitimate": [
+        0.974773907065679,
+        0.9774336765288968
+      ],
+      "cohens_d": -36.950382890866514,
+      "confusion": {
+        "fn": 0,
+        "fp": 0,
+        "tn": 1500,
+        "tp": 1500
+      },
+      "mean_cw_adversarial": 0.02366281826580195,
+      "mean_cw_legitimate": 0.9760772602598753,
+      "n_adversarial": 1500,
+      "n_legitimate": 1500,
+      "n_samples": 3000,
+      "name": "LR_EIGHT_STREAM",
+      "reliability_rel": 0.000865509376781335,
+      "sensitivity": 1.0,
+      "specificity": 1.0,
+      "threshold": 0.3,
+      "welch_p": 0.0,
+      "welch_t": -1011.927910889027
+    },
+    "MAX_VOTING": {
+      "auc_roc": 0.6,
+      "brier_score": 0.44666666666666666,
+      "ci95_cw_adversarial": [
+        0.9271625,
+        0.9416666666666667
+      ],
+      "ci95_cw_legitimate": [
+        1.0,
+        1.0
+      ],
+      "cohens_d": -0.6575432729789468,
+      "confusion": {
+        "fn": 1500,
+        "fp": 0,
+        "tn": 1500,
+        "tp": 0
+      },
+      "mean_cw_adversarial": 0.9346666666666666,
+      "mean_cw_legitimate": 1.0,
+      "n_adversarial": 1500,
+      "n_legitimate": 1500,
+      "n_samples": 3000,
+      "name": "MAX_VOTING",
+      "reliability_rel": 0.22444444444444445,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "threshold": 0.3,
+      "welch_p": 0.0,
+      "welch_t": -18.007564157317315
+    },
+    "NAIVE_BAYES": {
+      "auc_roc": 0.6316804444444445,
+      "brier_score": 0.47976355834987455,
+      "ci95_cw_adversarial": [
+        0.9761108498854711,
+        0.9807230363732167
+      ],
+      "ci95_cw_legitimate": [
+        0.9960127280047871,
+        0.9964021464054842
+      ],
+      "cohens_d": -0.5519405590510998,
+      "confusion": {
+        "fn": 1500,
+        "fp": 0,
+        "tn": 1500,
+        "tp": 0
+      },
+      "mean_cw_adversarial": 0.9784957791141572,
+      "mean_cw_legitimate": 0.9962101362161696,
+      "n_adversarial": 1500,
+      "n_legitimate": 1500,
+      "n_samples": 3000,
+      "name": "NAIVE_BAYES",
+      "reliability_rel": 0.2420080385832872,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "threshold": 0.3,
+      "welch_p": 0.0,
+      "welch_t": -15.115514729714976
+    },
+    "SIMPLE_AVERAGING": {
+      "auc_roc": 0.6251937777777777,
+      "brier_score": 0.3144550289753198,
+      "ci95_cw_adversarial": [
+        0.7591146364070369,
+        0.7675759313664675
+      ],
+      "ci95_cw_legitimate": [
+        0.8032602549020139,
+        0.8066948013702078
+      ],
+      "cohens_d": -0.6545263560207224,
+      "confusion": {
+        "fn": 1500,
+        "fp": 0,
+        "tn": 1500,
+        "tp": 0
+      },
+      "mean_cw_adversarial": 0.7634278469744089,
+      "mean_cw_legitimate": 0.8049639289169763,
+      "n_adversarial": 1500,
+      "n_legitimate": 1500,
+      "n_samples": 3000,
+      "name": "SIMPLE_AVERAGING",
+      "reliability_rel": 0.09283567132145784,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "threshold": 0.3,
+      "welch_p": 0.0,
+      "welch_t": -17.924942483710346
+    },
+    "VERDICT_WEIGHT": {
+      "auc_roc": 1.0,
+      "brier_score": 0.054719374466346095,
+      "ci95_cw_adversarial": [
+        0.08650630241580624,
+        0.09859424271759532
+      ],
+      "ci95_cw_legitimate": [
+        0.70942713052105,
+        0.7151114173056778
+      ],
+      "cohens_d": -6.514431368757341,
+      "confusion": {
+        "fn": 131,
+        "fp": 0,
+        "tn": 1500,
+        "tp": 1369
+      },
+      "mean_cw_adversarial": 0.09225547023034152,
+      "mean_cw_legitimate": 0.7122034114061786,
+      "n_adversarial": 1500,
+      "n_legitimate": 1500,
+      "n_samples": 3000,
+      "name": "VERDICT_WEIGHT",
+      "reliability_rel": 0.0542598653196004,
+      "sensitivity": 0.9126666666666666,
+      "specificity": 1.0,
+      "threshold": 0.3,
+      "welch_p": 0.0,
+      "welch_t": -178.40505049938253
+    },
+    "XGB_COMMERCIAL": {
+      "auc_roc": 0.6660644444444445,
+      "brier_score": 0.2183910272872421,
+      "ci95_cw_adversarial": [
+        0.4015076714290306,
+        0.4295613947634275
+      ],
+      "ci95_cw_legitimate": [
+        0.5870075774459479,
+        0.600690620836243
+      ],
+      "cohens_d": -0.7997625354229334,
+      "confusion": {
+        "fn": 1053,
+        "fp": 29,
+        "tn": 1471,
+        "tp": 447
+      },
+      "mean_cw_adversarial": 0.41620888657619554,
+      "mean_cw_legitimate": 0.5938095776699484,
+      "n_adversarial": 1500,
+      "n_legitimate": 1500,
+      "n_samples": 3000,
+      "name": "XGB_COMMERCIAL",
+      "reliability_rel": 0.009270147079868877,
+      "sensitivity": 0.298,
+      "specificity": 0.9806666666666667,
+      "threshold": 0.3,
+      "welch_p": 0.0,
+      "welch_t": -21.902399064933253
+    },
+    "XGB_EIGHT_STREAM": {
+      "auc_roc": 1.0,
+      "brier_score": 1.671728153987391e-05,
+      "ci95_cw_adversarial": [
+        0.0006300469289223353,
+        0.0007353026827176412
+      ],
+      "ci95_cw_legitimate": [
+        0.9987980058129332,
+        0.9993645680591459
+      ],
+      "cohens_d": -248.77124962968986,
+      "confusion": {
+        "fn": 0,
+        "fp": 0,
+        "tn": 1500,
+        "tp": 1500
+      },
+      "mean_cw_adversarial": 0.0006781971454620361,
+      "mean_cw_legitimate": 0.9991168043563715,
+      "n_adversarial": 1500,
+      "n_legitimate": 1500,
+      "n_samples": 3000,
+      "name": "XGB_EIGHT_STREAM",
+      "reliability_rel": 9.498427642659067e-06,
+      "sensitivity": 1.0,
+      "specificity": 1.0,
+      "threshold": 0.3,
+      "welch_p": 0.0,
+      "welch_t": -6812.881254046491
+    }
+  },
+  "package": {
+    "name": "verdict_weight",
+    "version": "1.2.0"
+  },
+  "platform": {
+    "machine": "x86_64",
+    "numpy": "2.4.4",
+    "platform": "Linux-5.15.200-x86_64-with-glibc2.35",
+    "python": "3.12.8",
+    "release": "5.15.200",
+    "system": "Linux"
+  },
+  "schema_version": "1.0.0",
+  "version": "v1.2.0",
+  "wall_seconds": {
+    "data_generation": 1.69,
+    "learned_fit": {
+      "LR_COMMERCIAL": 1.0845,
+      "LR_EIGHT_STREAM": 0.0115,
+      "XGB_COMMERCIAL": 0.2554,
+      "XGB_EIGHT_STREAM": 0.0979
+    },
+    "vw_scoring_full": 2.4451
+  }
+}

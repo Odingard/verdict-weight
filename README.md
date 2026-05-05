@@ -67,6 +67,34 @@ they cannot distinguish adversarial from legitimate signals when forced
 to take an actionable decision; they merely report uniformly high
 confidence on everything.
 
+### Learned-baseline head-to-head N=10,000 (seed=42, 70/30 stratified split)
+
+**Reviewer-pre-empt extension** for the "no learned-fusion baseline"
+limitation in Paper 2 / Paper 3. Logistic Regression and XGBoost are
+trained on the same dataset and evaluated on the held-out test split
+alongside VW and the four classical baselines. Two feature variants:
+*commercial* (SR/CC/TD/HA) — methodologically faithful to the classical
+baselines — and *eight_stream* (commercial + S_CTC/S_SIS/S_CPS/S_RIS) —
+strongest possible learned baseline, sees every signal VW sees.
+
+| Method | Variant | Brier ↓ | AUC ↑ | Cohen's d | Sens @ τ=0.30 |
+|---|---|---|---|---|---|
+| **VERDICT WEIGHT™** | composition rule | **0.0547** | **1.0000** | **−6.51** | **0.913** |
+| Logistic Regression | commercial | 0.2243 | 0.6355 | −0.68 | 0.200 |
+| XGBoost | commercial | 0.2184 | 0.6661 | −0.80 | 0.298 |
+| Logistic Regression | 8-stream | 0.0012 | 1.0000 | −36.95 | 1.000 |
+| XGBoost | 8-stream | 0.0000 | 1.0000 | −248.77 | 1.000 |
+
+**Reading.** Every method that consumes only the 4-dim commercial-tier
+evidence — closed-form *or* learned — saturates at AUC ≈ 0.60–0.67. The
+architectural thesis is quantitative: commercial-tier signals are
+insufficient *regardless of the fusion strategy*. At input parity
+(8-stream features), all three methods saturate AUC; VW's contribution
+at that point is HALT semantics, calibrated CW output mappable to
+action tiers, and verifier-grounded integrity streams that an
+LR/XGBoost tabular fuser cannot reproduce by construction. Full
+reading and reproducer details in [`VALIDATION.md` §4b](VALIDATION.md).
+
 ### Real-world validation — CISA Known Exploited Vulnerabilities (N=120)
 
 Tested against 120 real CVEs sampled from the CISA KEV catalog (snapshot
@@ -199,6 +227,7 @@ verdict-weight/
 │       └── cisa_kev_snapshot.json   # Frozen 1,586-CVE snapshot for CVE harness
 ├── benchmarks/
 │   ├── ieee_head_to_head.py     # VW vs DS / NB / SA / MV (N=2,000)
+│   ├── learned_head_to_head.py  # VW vs LR / XGBoost (commercial + 8-stream variants)
 │   ├── cve_validation.py        # CISA KEV reproducer (N=120)
 │   └── results/                 # Committed JSONs for cross-machine diff
 ├── tests/                       # 172 tests — unit / integration / property /
@@ -268,9 +297,10 @@ git clone https://github.com/Odingard/verdict-weight && cd verdict-weight
 python -m venv .venv && . .venv/bin/activate
 pip install -e ".[dev]"
 
-python -m validation.synthetic_validation --n 10000 --seed 42
-python -m benchmarks.ieee_head_to_head      --n 2000  --seed 42
-python -m benchmarks.cve_validation         --n 120   --seed 42
+python -m validation.synthetic_validation     --n 10000 --seed 42
+python -m benchmarks.ieee_head_to_head        --n 2000  --seed 42
+python -m benchmarks.learned_head_to_head     --n 10000 --seed 42  # optional, requires .[learned]
+python -m benchmarks.cve_validation           --n 120   --seed 42
 python -m pytest tests/
 ```
 
