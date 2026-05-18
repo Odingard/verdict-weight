@@ -148,7 +148,7 @@ split for parity. Two feature variants are compared:
 
 | Method | Variant | Brier ↓ | REL ↓ | AUC ↑ | Cohen's d | Sens @ 0.30 | Spec @ 0.30 |
 |---|---|---|---|---|---|---|---|
-| **VERDICT WEIGHT** | 8-stream (composition rule) | **0.0547** | **0.0543** | **1.0000** | **−6.51** | **0.913** | **1.000** |
+| **VERDICT WEIGHT** | 8-stream (composition rule) | 0.0547 | 0.0543 | 1.0000 | −6.51 | 0.913 | 1.000 |
 | Dempster-Shafer | commercial | 0.4974 | 0.2480 | 0.6260 | −0.54 | 0.000 | 1.000 |
 | Naive Bayes | commercial | 0.4798 | 0.2420 | 0.6317 | −0.55 | 0.000 | 1.000 |
 | Simple Averaging | commercial | 0.3145 | 0.0928 | 0.6252 | −0.65 | 0.000 | 1.000 |

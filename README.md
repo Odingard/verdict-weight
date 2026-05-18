@@ -79,7 +79,7 @@ strongest possible learned baseline, sees every signal VW sees.
 
 | Method | Variant | Brier ↓ | AUC ↑ | Cohen's d | Sens @ τ=0.30 |
 |---|---|---|---|---|---|
-| **VERDICT WEIGHT™** | composition rule | **0.0547** | **1.0000** | **−6.51** | **0.913** |
+| **VERDICT WEIGHT™** | composition rule | 0.0547 | 1.0000 | −6.51 | 0.913 |
 | Logistic Regression | commercial | 0.2243 | 0.6355 | −0.68 | 0.200 |
 | XGBoost | commercial | 0.2184 | 0.6661 | −0.80 | 0.298 |
 | Logistic Regression | 8-stream | 0.0012 | 1.0000 | −36.95 | 1.000 |
