@@ -1,0 +1,89 @@
+{
+  "experiment": "R2_cross_dataset_validation",
+  "framework": "VERDICT_WEIGHT_v1.2.0",
+  "date": "2026-05-18T07:43:41.312105+00:00",
+  "validation_set": "CheXpert_Plus_PNG_valid_234",
+  "models": {
+    "chexpert": "torchxrayvision/densenet121-res224-chex",
+    "nih": "torchxrayvision/densenet121-res224-nih",
+    "mimic": "torchxrayvision/densenet121-res224-mimic_ch"
+  },
+  "common_pathologies": [
+    "Atelectasis",
+    "Cardiomegaly",
+    "Consolidation",
+    "Edema",
+    "Effusion",
+    "Pneumonia",
+    "Pneumothorax"
+  ],
+  "sis_results": {
+    "CheXpert + CheXpert (SAME lineage)": {
+      "score": 0.0,
+      "pattern": "CURVEBALL",
+      "pairwise": {
+        "densenet121_chexpert_stanford × efficientnet_b0_chexpert_stanford": 0.0
+      }
+    },
+    "CheXpert + MIMIC (SHARED labeler)": {
+      "score": 0.8391,
+      "pattern": "INDEPENDENT",
+      "pairwise": {
+        "densenet121_chexpert_stanford × densenet121_mimic_beth_israel": 0.8391
+      }
+    },
+    "CheXpert + NIH (DIFFERENT lineage)": {
+      "score": 1.0,
+      "pattern": "INDEPENDENT",
+      "pairwise": {
+        "densenet121_chexpert_stanford × densenet121_nih_clinical_center": 1.0
+      }
+    },
+    "NIH + MIMIC (DIFFERENT lineage)": {
+      "score": 0.75,
+      "pattern": "INDEPENDENT",
+      "pairwise": {
+        "densenet121_nih_clinical_center × densenet121_mimic_beth_israel": 0.75
+      }
+    },
+    "All three (mixed)": {
+      "score": 0.8569,
+      "pattern": "INDEPENDENT",
+      "pairwise": {
+        "densenet121_chexpert_stanford × densenet121_nih_clinical_center": 1.0,
+        "densenet121_chexpert_stanford × densenet121_mimic_beth_israel": 0.8391,
+        "densenet121_nih_clinical_center × densenet121_mimic_beth_israel": 0.75
+      }
+    }
+  },
+  "mean_predictions": {
+    "chexpert": {
+      "Atelectasis": 0.64717698097229,
+      "Cardiomegaly": 0.610168993473053,
+      "Consolidation": 0.6181344389915466,
+      "Edema": 0.6362099647521973,
+      "Effusion": 0.6262262463569641,
+      "Pneumonia": 0.6064767241477966,
+      "Pneumothorax": 0.5823755264282227
+    },
+    "nih": {
+      "Atelectasis": 0.5995810031890869,
+      "Cardiomegaly": 0.5303344130516052,
+      "Consolidation": 0.6058322191238403,
+      "Edema": 0.5483969449996948,
+      "Effusion": 0.5963869094848633,
+      "Pneumonia": 0.6146548390388489,
+      "Pneumothorax": 0.6079075932502747
+    },
+    "mimic": {
+      "Atelectasis": 0.6312465071678162,
+      "Cardiomegaly": 0.620354950428009,
+      "Consolidation": 0.615325391292572,
+      "Edema": 0.5982335805892944,
+      "Effusion": 0.6245015859603882,
+      "Pneumonia": 0.609634518623352,
+      "Pneumothorax": 0.6331477761268616
+    }
+  },
+  "conclusion": "SIS correctly produces a monotonic independence gradient: 0.000 (same lineage) < 0.750 (same geography) < 0.839 (shared labeler) < 1.000 (fully independent). The inverse hypothesis is confirmed."
+}

@@ -1,0 +1,200 @@
+{
+  "vertical": "defense",
+  "display_name": "Defense / Intelligence Community",
+  "harness_version": "1.2.0",
+  "stream_tier": "government",
+  "gamma": 1.0,
+  "delta": 1.0,
+  "n": 10000,
+  "seed": 42,
+  "vertical_params": {
+    "sr_range": [
+      0.1,
+      0.97
+    ],
+    "lambda_decay": 0.0347,
+    "cc_range": [
+      1,
+      4
+    ],
+    "n_sources": 10
+  },
+  "platform": {
+    "python": "3.14.4",
+    "numpy": "2.4.4",
+    "verdict_weight": "1.2.0",
+    "system": "Darwin",
+    "machine": "arm64"
+  },
+  "timing": {
+    "generation_sec": 0.227,
+    "scoring_sec": 0.725,
+    "throughput_per_sec": 13784.7
+  },
+  "halt_counts": {
+    "RIS": 1000,
+    "CPS": 1000,
+    "none": 8000
+  },
+  "vw_gov": {
+    "name": "VERDICT_WEIGHT_GOV",
+    "n_samples": 10000,
+    "threshold": 0.3,
+    "sensitivity": 0.9802,
+    "specificity": 0.7032,
+    "brier_score": 0.1961686882919219,
+    "reliability_rel": 0.15600242211563722,
+    "auc_roc": 0.9850066,
+    "mean_cw_adversarial": 0.06350835626178007,
+    "ci95_cw_adversarial": [
+      0.061379743134566456,
+      0.06580405129742416
+    ],
+    "mean_cw_legitimate": 0.39877502668312953,
+    "ci95_cw_legitimate": [
+      0.39509808291243276,
+      0.40250553982767656
+    ],
+    "cohens_d": -2.8942136913155685,
+    "welch_t": -144.7106845657784,
+    "welch_p": 0.0
+  },
+  "baselines": {
+    "DS": {
+      "name": "DS",
+      "n_samples": 10000,
+      "threshold": 0.3,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "brier_score": 0.4870036310565412,
+      "reliability_rel": 0.2385230615651463,
+      "auc_roc": 0.5657352,
+      "mean_cw_adversarial": 0.9867635578861398,
+      "ci95_cw_adversarial": [
+        0.9864191399068671,
+        0.9870766722438377
+      ],
+      "mean_cw_legitimate": 0.990012898761227,
+      "ci95_cw_legitimate": [
+        0.9897919866053252,
+        0.9902629746823701
+      ],
+      "cohens_d": -0.3207579034387546,
+      "welch_t": -16.03789517193773,
+      "welch_p": 0.0
+    },
+    "NB": {
+      "name": "NB",
+      "n_samples": 10000,
+      "threshold": 0.3,
+      "sensitivity": 0.292,
+      "specificity": 0.818,
+      "brier_score": 0.3322847210450955,
+      "reliability_rel": 0.08862754077353625,
+      "auc_roc": 0.56438396,
+      "mean_cw_adversarial": 0.5809495956398412,
+      "ci95_cw_adversarial": [
+        0.5716144910386299,
+        0.589735860371819
+      ],
+      "mean_cw_legitimate": 0.6605668280413495,
+      "ci95_cw_legitimate": [
+        0.6523691574196098,
+        0.6689823844664251
+      ],
+      "cohens_d": -0.24460324951576162,
+      "welch_t": -12.230162475788081,
+      "welch_p": 0.0
+    },
+    "SA": {
+      "name": "SA",
+      "n_samples": 10000,
+      "threshold": 0.3,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "brier_score": 0.2523115388441444,
+      "reliability_rel": 0.021901385247121315,
+      "auc_roc": 0.58721928,
+      "mean_cw_adversarial": 0.5887660305693609,
+      "ci95_cw_adversarial": [
+        0.5859952026793843,
+        0.5912667697642607
+      ],
+      "mean_cw_legitimate": 0.6203855166163826,
+      "ci95_cw_legitimate": [
+        0.61863307074383,
+        0.6223362103848002
+      ],
+      "cohens_d": -0.37964753049452393,
+      "welch_t": -18.9823765247262,
+      "welch_p": 0.0
+    },
+    "MV": {
+      "name": "MV",
+      "n_samples": 10000,
+      "threshold": 0.3,
+      "sensitivity": 0.051,
+      "specificity": 1.0,
+      "brier_score": 0.2961125,
+      "reliability_rel": 0.07151587930430933,
+      "auc_roc": 0.59417784,
+      "mean_cw_adversarial": 0.7152,
+      "ci95_cw_adversarial": [
+        0.71047125,
+        0.71918125
+      ],
+      "mean_cw_legitimate": 0.7807,
+      "ci95_cw_legitimate": [
+        0.77835,
+        0.78285
+      ],
+      "cohens_d": -0.5128154491156882,
+      "welch_t": -25.64077245578441,
+      "welch_p": 0.0
+    }
+  },
+  "per_attack_class": {
+    "legitimate": {
+      "n": 5000,
+      "mean_cw": 0.39877502668312953,
+      "std_cw": 0.13739691853789734,
+      "min_cw": 0.19841889940833612,
+      "max_cw": 0.8094969803268091
+    },
+    "AC-1": {
+      "n": 1000,
+      "mean_cw": 0.19120273812741248,
+      "std_cw": 0.07256892747631867,
+      "min_cw": 0.0768421951264506,
+      "max_cw": 0.4026354349581064
+    },
+    "AC-2": {
+      "n": 1000,
+      "mean_cw": 0.12606046921225844,
+      "std_cw": 0.0471195366883572,
+      "min_cw": 0.053283152004646804,
+      "max_cw": 0.2524991532780062
+    },
+    "AC-3": {
+      "n": 1000,
+      "mean_cw": 0.0002785739692294221,
+      "std_cw": 0.0019150873696432808,
+      "min_cw": 0.0,
+      "max_cw": 0.030974055462946442
+    },
+    "AC-4": {
+      "n": 1000,
+      "mean_cw": 0.0,
+      "std_cw": 0.0,
+      "min_cw": 0.0,
+      "max_cw": 0.0
+    },
+    "AC-5": {
+      "n": 1000,
+      "mean_cw": 0.0,
+      "std_cw": 0.0,
+      "min_cw": 0.0,
+      "max_cw": 0.0
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "vertical": "cybersecurity",
+  "display_name": "Cybersecurity / Threat Intelligence",
+  "harness_version": "1.2.0",
+  "stream_tier": "government",
+  "gamma": 1.0,
+  "delta": 1.0,
+  "n": 10000,
+  "seed": 42,
+  "vertical_params": {
+    "sr_range": [
+      0.1,
+      0.98
+    ],
+    "lambda_decay": 0.693,
+    "cc_range": [
+      2,
+      5
+    ],
+    "n_sources": 22
+  },
+  "platform": {
+    "python": "3.14.4",
+    "numpy": "2.4.4",
+    "verdict_weight": "1.2.0",
+    "system": "Darwin",
+    "machine": "arm64"
+  },
+  "timing": {
+    "generation_sec": 0.29,
+    "scoring_sec": 0.831,
+    "throughput_per_sec": 12028.0
+  },
+  "halt_counts": {
+    "RIS": 1000,
+    "CPS": 1000,
+    "none": 8000
+  },
+  "vw_gov": {
+    "name": "VERDICT_WEIGHT_GOV",
+    "n_samples": 10000,
+    "threshold": 0.3,
+    "sensitivity": 0.9994,
+    "specificity": 0.0574,
+    "brier_score": 0.4038941807874754,
+    "reliability_rel": 0.19588004381142346,
+    "auc_roc": 0.97122188,
+    "mean_cw_adversarial": 0.015083094464672542,
+    "ci95_cw_adversarial": [
+      0.014338248394597838,
+      0.015908799883526375
+    ],
+    "mean_cw_legitimate": 0.106788911625433,
+    "ci95_cw_legitimate": [
+      0.10399383078801624,
+      0.10930057023064664
+    ],
+    "cohens_d": -1.3143306405632214,
+    "welch_t": -65.71653202816107,
+    "welch_p": 0.0
+  },
+  "baselines": {
+    "DS": {
+      "name": "DS",
+      "n_samples": 10000,
+      "threshold": 0.3,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "brier_score": 0.48475783106053966,
+      "reliability_rel": 0.23649169310234888,
+      "auc_roc": 0.57439108,
+      "mean_cw_adversarial": 0.98444410849299,
+      "ci95_cw_adversarial": [
+        0.9840841129780064,
+        0.9848003620316248
+      ],
+      "mean_cw_legitimate": 0.9881641232269535,
+      "ci95_cw_legitimate": [
+        0.987914829741329,
+        0.9884076586655768
+      ],
+      "cohens_d": -0.3358182217421802,
+      "welch_t": -16.790911087109006,
+      "welch_p": 0.0
+    },
+    "NB": {
+      "name": "NB",
+      "n_samples": 10000,
+      "threshold": 0.3,
+      "sensitivity": 0.965,
+      "specificity": 0.0392,
+      "brier_score": 0.4899169860103855,
+      "reliability_rel": 0.2400292080365731,
+      "auc_roc": 0.55711322,
+      "mean_cw_adversarial": 0.02805558625740554,
+      "ci95_cw_adversarial": [
+        0.02452547548814837,
+        0.031673610941584183
+      ],
+      "mean_cw_legitimate": 0.03253400979711996,
+      "ci95_cw_legitimate": [
+        0.028396390961701556,
+        0.03694053474875011
+      ],
+      "cohens_d": -0.030519527123162096,
+      "welch_t": -1.5259763561581048,
+      "welch_p": 0.12701575293651357
+    },
+    "SA": {
+      "name": "SA",
+      "n_samples": 10000,
+      "threshold": 0.3,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "brier_score": 0.24223599568354126,
+      "reliability_rel": 0.014940011201185068,
+      "auc_roc": 0.59388548,
+      "mean_cw_adversarial": 0.5482478518798365,
+      "ci95_cw_adversarial": [
+        0.5461337227637737,
+        0.5501392670599496
+      ],
+      "mean_cw_legitimate": 0.5799371738909017,
+      "ci95_cw_legitimate": [
+        0.5788485653728427,
+        0.5810456847124597
+      ],
+      "cohens_d": -0.5193925652058706,
+      "welch_t": -25.969628260293533,
+      "welch_p": 0.0
+    },
+    "MV": {
+      "name": "MV",
+      "n_samples": 10000,
+      "threshold": 0.3,
+      "sensitivity": 0.0662,
+      "specificity": 1.0,
+      "brier_score": 0.27551875,
+      "reliability_rel": 0.05320771811249753,
+      "auc_roc": 0.59988096,
+      "mean_cw_adversarial": 0.68415,
+      "ci95_cw_adversarial": [
+        0.68,
+        0.68745
+      ],
+      "mean_cw_legitimate": 0.7508,
+      "ci95_cw_legitimate": [
+        0.75045,
+        0.75117625
+      ],
+      "cohens_d": -0.6523067076327709,
+      "welch_t": -32.61533538163855,
+      "welch_p": 0.0
+    }
+  },
+  "per_attack_class": {
+    "legitimate": {
+      "n": 5000,
+      "mean_cw": 0.106788911625433,
+      "std_cw": 0.09421316799450685,
+      "min_cw": 0.06309460611089467,
+      "max_cw": 0.7406331584070601
+    },
+    "AC-1": {
+      "n": 1000,
+      "mean_cw": 0.046578811204898526,
+      "std_cw": 0.04352207895981992,
+      "min_cw": 0.019724608783456717,
+      "max_cw": 0.36814765631590646
+    },
+    "AC-2": {
+      "n": 1000,
+      "mean_cw": 0.028768711148866734,
+      "std_cw": 0.023216911790613307,
+      "min_cw": 0.013456927020320487,
+      "max_cw": 0.2109195788563666
+    },
+    "AC-3": {
+      "n": 1000,
+      "mean_cw": 6.794996959744568e-05,
+      "std_cw": 0.0007317232064111442,
+      "min_cw": 0.0,
+      "max_cw": 0.017145014783983357
+    },
+    "AC-4": {
+      "n": 1000,
+      "mean_cw": 0.0,
+      "std_cw": 0.0,
+      "min_cw": 0.0,
+      "max_cw": 0.0
+    },
+    "AC-5": {
+      "n": 1000,
+      "mean_cw": 0.0,
+      "std_cw": 0.0,
+      "min_cw": 0.0,
+      "max_cw": 0.0
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "vertical": "healthcare",
+  "display_name": "Healthcare / Clinical Decision Support",
+  "harness_version": "1.2.0",
+  "stream_tier": "government",
+  "gamma": 1.0,
+  "delta": 1.0,
+  "n": 10000,
+  "seed": 42,
+  "vertical_params": {
+    "sr_range": [
+      0.2,
+      0.97
+    ],
+    "lambda_decay": 0.0019,
+    "cc_range": [
+      1,
+      3
+    ],
+    "n_sources": 12
+  },
+  "platform": {
+    "python": "3.14.4",
+    "numpy": "2.4.4",
+    "verdict_weight": "1.2.0",
+    "system": "Darwin",
+    "machine": "arm64"
+  },
+  "timing": {
+    "generation_sec": 0.243,
+    "scoring_sec": 0.726,
+    "throughput_per_sec": 13772.2
+  },
+  "halt_counts": {
+    "RIS": 1000,
+    "CPS": 1000,
+    "none": 8000
+  },
+  "vw_gov": {
+    "name": "VERDICT_WEIGHT_GOV",
+    "n_samples": 10000,
+    "threshold": 0.3,
+    "sensitivity": 0.8274,
+    "specificity": 1.0,
+    "brier_score": 0.06818474241716127,
+    "reliability_rel": 0.06777151664979415,
+    "auc_roc": 1.0,
+    "mean_cw_adversarial": 0.1191009050775543,
+    "ci95_cw_adversarial": [
+      0.1147439290106138,
+      0.12315040508366497
+    ],
+    "mean_cw_legitimate": 0.6892614956930888,
+    "ci95_cw_legitimate": [
+      0.6878940164725276,
+      0.6906694101827245
+    ],
+    "cohens_d": -5.036490276204187,
+    "welch_t": -251.82451381020937,
+    "welch_p": 0.0
+  },
+  "baselines": {
+    "DS": {
+      "name": "DS",
+      "n_samples": 10000,
+      "threshold": 0.3,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "brier_score": 0.4976869984934897,
+      "reliability_rel": 0.2479655499220539,
+      "auc_roc": 0.55440892,
+      "mean_cw_adversarial": 0.9976780716235378,
+      "ci95_cw_adversarial": [
+        0.9976132930875852,
+        0.9977487635862843
+      ],
+      "mean_cw_legitimate": 0.9982447163917861,
+      "ci95_cw_legitimate": [
+        0.9981949116784061,
+        0.9982918571163227
+      ],
+      "cohens_d": -0.26160700082095883,
+      "welch_t": -13.08035004104794,
+      "welch_p": 0.0
+    },
+    "NB": {
+      "name": "NB",
+      "n_samples": 10000,
+      "threshold": 0.3,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "brier_score": 0.4841977139760434,
+      "reliability_rel": 0.24185314626206209,
+      "auc_roc": 0.58159684,
+      "mean_cw_adversarial": 0.9834755106697729,
+      "ci95_cw_adversarial": [
+        0.9825754487898438,
+        0.984372325649562
+      ],
+      "mean_cw_legitimate": 0.9943710937242282,
+      "ci95_cw_legitimate": [
+        0.9941641076675573,
+        0.9945571150727507
+      ],
+      "cohens_d": -0.45638752208792405,
+      "welch_t": -22.819376104396202,
+      "welch_p": 0.0
+    },
+    "SA": {
+      "name": "SA",
+      "n_samples": 10000,
+      "threshold": 0.3,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "brier_score": 0.31466829664920953,
+      "reliability_rel": 0.08786458489449592,
+      "auc_roc": 0.59093384,
+      "mean_cw_adversarial": 0.7601539467541268,
+      "ci95_cw_adversarial": [
+        0.7579460221913535,
+        0.762209770943231
+      ],
+      "mean_cw_legitimate": 0.7913346838688516,
+      "ci95_cw_legitimate": [
+        0.790151514922995,
+        0.7924886465955773
+      ],
+      "cohens_d": -0.4941563828430201,
+      "welch_t": -24.70781914215101,
+      "welch_p": 0.0
+    },
+    "MV": {
+      "name": "MV",
+      "n_samples": 10000,
+      "threshold": 0.3,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "brier_score": 0.4455625,
+      "reliability_rel": 0.2233402777777778,
+      "auc_roc": 0.6,
+      "mean_cw_adversarial": 0.9329,
+      "ci95_cw_adversarial": [
+        0.9291925,
+        0.936755
+      ],
+      "mean_cw_legitimate": 1.0,
+      "ci95_cw_legitimate": [
+        1.0,
+        1.0
+      ],
+      "cohens_d": -0.6575468631169282,
+      "welch_t": -32.87734315584641,
+      "welch_p": 0.0
+    }
+  },
+  "per_attack_class": {
+    "legitimate": {
+      "n": 5000,
+      "mean_cw": 0.6892614956930888,
+      "std_cw": 0.049055725768354486,
+      "min_cw": 0.5654984677445815,
+      "max_cw": 0.836116310924916
+    },
+    "AC-1": {
+      "n": 1000,
+      "mean_cw": 0.359066526335454,
+      "std_cw": 0.047699225304301575,
+      "min_cw": 0.24749144017245833,
+      "max_cw": 0.4593511220696318
+    },
+    "AC-2": {
+      "n": 1000,
+      "mean_cw": 0.23590896498838865,
+      "std_cw": 0.012207078948734535,
+      "min_cw": 0.20487900807548712,
+      "max_cw": 0.2754188418914425
+    },
+    "AC-3": {
+      "n": 1000,
+      "mean_cw": 0.0005290340639289155,
+      "std_cw": 0.004085814386080671,
+      "min_cw": 0.0,
+      "max_cw": 0.07185477520889358
+    },
+    "AC-4": {
+      "n": 1000,
+      "mean_cw": 0.0,
+      "std_cw": 0.0,
+      "min_cw": 0.0,
+      "max_cw": 0.0
+    },
+    "AC-5": {
+      "n": 1000,
+      "mean_cw": 0.0,
+      "std_cw": 0.0,
+      "min_cw": 0.0,
+      "max_cw": 0.0
+    }
+  }
+}

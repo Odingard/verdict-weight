@@ -1,0 +1,499 @@
+{
+  "experiment": "Build_A_v2_Learned_Baseline_Rigorous",
+  "framework": "VERDICT_WEIGHT_v1.2.0",
+  "date": "2026-05-18T19:43:45.077605+00:00",
+  "tests": {
+    "test_1_overlap": {
+      "overlap_0.0": {
+        "VERDICT_WEIGHT": {
+          "brier": 0.091986,
+          "auc": 0.99983,
+          "f1": 0.9602,
+          "cohens_d": 3.7208
+        },
+        "XGBoost": {
+          "brier": 0.002922,
+          "auc": 0.999958,
+          "f1": 0.996,
+          "cohens_d": "18.3997"
+        },
+        "Logistic Reg": {
+          "brier": 0.004831,
+          "auc": 0.999923,
+          "f1": 0.9955,
+          "cohens_d": 14.5744
+        },
+        "Random Forest": {
+          "brier": 0.004866,
+          "auc": 0.999916,
+          "f1": 0.994,
+          "cohens_d": 14.3464
+        },
+        "Gradient Boost": {
+          "brier": 0.003322,
+          "auc": 0.999946,
+          "f1": 0.9955,
+          "cohens_d": 17.2432
+        }
+      },
+      "overlap_0.2": {
+        "VERDICT_WEIGHT": {
+          "brier": 0.10817,
+          "auc": 0.999332,
+          "f1": 0.9272,
+          "cohens_d": 3.5639
+        },
+        "XGBoost": {
+          "brier": 0.006793,
+          "auc": 0.999711,
+          "f1": 0.9895,
+          "cohens_d": "11.9728"
+        },
+        "Logistic Reg": {
+          "brier": 0.007959,
+          "auc": 0.999705,
+          "f1": 0.9935,
+          "cohens_d": 11.2457
+        },
+        "Random Forest": {
+          "brier": 0.007699,
+          "auc": 0.999759,
+          "f1": 0.99,
+          "cohens_d": 11.3547
+        },
+        "Gradient Boost": {
+          "brier": 0.007094,
+          "auc": 0.999736,
+          "f1": 0.9895,
+          "cohens_d": 11.7132
+        }
+      },
+      "overlap_0.4": {
+        "VERDICT_WEIGHT": {
+          "brier": 0.125513,
+          "auc": 0.99804,
+          "f1": 0.8842,
+          "cohens_d": 3.4141
+        },
+        "XGBoost": {
+          "brier": 0.012179,
+          "auc": 0.998882,
+          "f1": 0.9855,
+          "cohens_d": "8.8419"
+        },
+        "Logistic Reg": {
+          "brier": 0.013235,
+          "auc": 0.999075,
+          "f1": 0.9861,
+          "cohens_d": 8.5972
+        },
+        "Random Forest": {
+          "brier": 0.013411,
+          "auc": 0.998797,
+          "f1": 0.985,
+          "cohens_d": 8.4803
+        },
+        "Gradient Boost": {
+          "brier": 0.013186,
+          "auc": 0.998924,
+          "f1": 0.9845,
+          "cohens_d": 8.4857
+        }
+      },
+      "overlap_0.6": {
+        "VERDICT_WEIGHT": {
+          "brier": 0.143709,
+          "auc": 0.994707,
+          "f1": 0.8361,
+          "cohens_d": 3.2523
+        },
+        "XGBoost": {
+          "brier": 0.022098,
+          "auc": 0.995685,
+          "f1": 0.9726,
+          "cohens_d": "6.4273"
+        },
+        "Logistic Reg": {
+          "brier": 0.021891,
+          "auc": 0.997041,
+          "f1": 0.9701,
+          "cohens_d": 6.5412
+        },
+        "Random Forest": {
+          "brier": 0.022564,
+          "auc": 0.995961,
+          "f1": 0.973,
+          "cohens_d": 6.4017
+        },
+        "Gradient Boost": {
+          "brier": 0.022129,
+          "auc": 0.996108,
+          "f1": 0.9731,
+          "cohens_d": 6.4247
+        }
+      }
+    },
+    "test_2_limited_data": {
+      "VERDICT_WEIGHT": {
+        "brier": 0.116727,
+        "auc": 0.99886,
+        "f1": 0.9074,
+        "cohens_d": 3.4986
+      },
+      "n_train_50": {
+        "XGBoost": {
+          "brier": 0.030282,
+          "auc": 0.994225,
+          "f1": 0.9631,
+          "cohens_d": "5.5287"
+        },
+        "Logistic Reg": {
+          "brier": 0.090764,
+          "auc": 0.999382,
+          "f1": 0.9885,
+          "cohens_d": 4.8053
+        },
+        "Random Forest": {
+          "brier": 0.039554,
+          "auc": 0.995426,
+          "f1": 0.9635,
+          "cohens_d": 4.7619
+        },
+        "Gradient Boost": {
+          "brier": 0.06391,
+          "auc": 0.986037,
+          "f1": 0.937,
+          "cohens_d": 3.5896
+        }
+      },
+      "n_train_100": {
+        "XGBoost": {
+          "brier": 0.044872,
+          "auc": 0.990052,
+          "f1": 0.9422,
+          "cohens_d": "4.3116"
+        },
+        "Logistic Reg": {
+          "brier": 0.06102,
+          "auc": 0.999246,
+          "f1": 0.9875,
+          "cohens_d": 5.3133
+        },
+        "Random Forest": {
+          "brier": 0.029808,
+          "auc": 0.996784,
+          "f1": 0.9643,
+          "cohens_d": 5.6539
+        },
+        "Gradient Boost": {
+          "brier": 0.074746,
+          "auc": 0.96672,
+          "f1": 0.9165,
+          "cohens_d": 3.2132
+        }
+      },
+      "n_train_250": {
+        "XGBoost": {
+          "brier": 0.037078,
+          "auc": 0.994301,
+          "f1": 0.9525,
+          "cohens_d": "4.8423"
+        },
+        "Logistic Reg": {
+          "brier": 0.035877,
+          "auc": 0.999217,
+          "f1": 0.9866,
+          "cohens_d": 6.168
+        },
+        "Random Forest": {
+          "brier": 0.02463,
+          "auc": 0.997371,
+          "f1": 0.9671,
+          "cohens_d": 6.1394
+        },
+        "Gradient Boost": {
+          "brier": 0.055332,
+          "auc": 0.990517,
+          "f1": 0.9345,
+          "cohens_d": 3.881
+        }
+      },
+      "n_train_500": {
+        "XGBoost": {
+          "brier": 0.02408,
+          "auc": 0.997707,
+          "f1": 0.968,
+          "cohens_d": "6.1796"
+        },
+        "Logistic Reg": {
+          "brier": 0.024799,
+          "auc": 0.999368,
+          "f1": 0.9876,
+          "cohens_d": 7.0003
+        },
+        "Random Forest": {
+          "brier": 0.021918,
+          "auc": 0.997703,
+          "f1": 0.9679,
+          "cohens_d": 6.5051
+        },
+        "Gradient Boost": {
+          "brier": 0.034252,
+          "auc": 0.995987,
+          "f1": 0.9649,
+          "cohens_d": 5.1341
+        }
+      },
+      "n_train_1000": {
+        "XGBoost": {
+          "brier": 0.013226,
+          "auc": 0.999044,
+          "f1": 0.9824,
+          "cohens_d": "8.4847"
+        },
+        "Logistic Reg": {
+          "brier": 0.018213,
+          "auc": 0.999427,
+          "f1": 0.9886,
+          "cohens_d": 7.8445
+        },
+        "Random Forest": {
+          "brier": 0.014198,
+          "auc": 0.999063,
+          "f1": 0.9829,
+          "cohens_d": 8.2336
+        },
+        "Gradient Boost": {
+          "brier": 0.016166,
+          "auc": 0.998964,
+          "f1": 0.9804,
+          "cohens_d": 7.6552
+        }
+      },
+      "n_train_2000": {
+        "XGBoost": {
+          "brier": 0.010607,
+          "auc": 0.999292,
+          "f1": 0.9864,
+          "cohens_d": "9.5183"
+        },
+        "Logistic Reg": {
+          "brier": 0.014284,
+          "auc": 0.999461,
+          "f1": 0.9881,
+          "cohens_d": 8.5734
+        },
+        "Random Forest": {
+          "brier": 0.011634,
+          "auc": 0.999271,
+          "f1": 0.9864,
+          "cohens_d": 9.1475
+        },
+        "Gradient Boost": {
+          "brier": 0.01097,
+          "auc": 0.99926,
+          "f1": 0.9865,
+          "cohens_d": 9.3642
+        }
+      },
+      "n_train_4000": {
+        "XGBoost": {
+          "brier": 0.010516,
+          "auc": 0.999431,
+          "f1": 0.9864,
+          "cohens_d": "9.5626"
+        },
+        "Logistic Reg": {
+          "brier": 0.011594,
+          "auc": 0.999496,
+          "f1": 0.9905,
+          "cohens_d": 9.3628
+        },
+        "Random Forest": {
+          "brier": 0.010619,
+          "auc": 0.999427,
+          "f1": 0.9875,
+          "cohens_d": 9.5919
+        },
+        "Gradient Boost": {
+          "brier": 0.010787,
+          "auc": 0.99939,
+          "f1": 0.9874,
+          "cohens_d": 9.444
+        }
+      },
+      "n_train_8000": {
+        "XGBoost": {
+          "brier": 0.009355,
+          "auc": 0.999439,
+          "f1": 0.9885,
+          "cohens_d": "10.153"
+        },
+        "Logistic Reg": {
+          "brier": 0.010254,
+          "auc": 0.99948,
+          "f1": 0.9905,
+          "cohens_d": 9.8441
+        },
+        "Random Forest": {
+          "brier": 0.009541,
+          "auc": 0.999524,
+          "f1": 0.9885,
+          "cohens_d": 10.1538
+        },
+        "Gradient Boost": {
+          "brier": 0.009912,
+          "auc": 0.999446,
+          "f1": 0.988,
+          "cohens_d": 9.857
+        }
+      }
+    },
+    "test_3_cross_vertical": {
+      "healthcare": {
+        "VERDICT_WEIGHT": {
+          "brier": 0.116727,
+          "auc": 0.99886,
+          "f1": 0.9074,
+          "cohens_d": 3.4986
+        },
+        "XGBoost_transfer": {
+          "brier": 0.009355,
+          "auc": 0.999439,
+          "f1": 0.9885,
+          "cohens_d": "10.153"
+        }
+      },
+      "cybersecurity": {
+        "VERDICT_WEIGHT": {
+          "brier": 0.119542,
+          "auc": 0.995073,
+          "f1": 0.8949,
+          "cohens_d": 3.098
+        },
+        "XGBoost_transfer": {
+          "brier": 0.009355,
+          "auc": 0.999439,
+          "f1": 0.9885,
+          "cohens_d": "10.153"
+        }
+      },
+      "financial": {
+        "VERDICT_WEIGHT": {
+          "brier": 0.120764,
+          "auc": 0.996902,
+          "f1": 0.8764,
+          "cohens_d": 3.1801
+        },
+        "XGBoost_transfer": {
+          "brier": 0.009355,
+          "auc": 0.999439,
+          "f1": 0.9885,
+          "cohens_d": "10.153"
+        }
+      },
+      "defense": {
+        "VERDICT_WEIGHT": {
+          "brier": 0.115679,
+          "auc": 0.998047,
+          "f1": 0.9153,
+          "cohens_d": 3.4023
+        },
+        "XGBoost_transfer": {
+          "brier": 0.009355,
+          "auc": 0.999439,
+          "f1": 0.9885,
+          "cohens_d": "10.153"
+        }
+      },
+      "healthcare_in_domain": {
+        "VERDICT_WEIGHT": {
+          "brier": 0.116727,
+          "auc": 0.99886,
+          "f1": 0.9074,
+          "cohens_d": 3.4986
+        },
+        "XGBoost_in_domain": {
+          "brier": 0.009355,
+          "auc": 0.999439,
+          "f1": 0.9885,
+          "cohens_d": "10.153"
+        }
+      },
+      "cybersecurity_in_domain": {
+        "VERDICT_WEIGHT": {
+          "brier": 0.119542,
+          "auc": 0.995073,
+          "f1": 0.8949,
+          "cohens_d": 3.098
+        },
+        "XGBoost_in_domain": {
+          "brier": 0.009355,
+          "auc": 0.999439,
+          "f1": 0.9885,
+          "cohens_d": "10.153"
+        }
+      },
+      "financial_in_domain": {
+        "VERDICT_WEIGHT": {
+          "brier": 0.120764,
+          "auc": 0.996902,
+          "f1": 0.8764,
+          "cohens_d": 3.1801
+        },
+        "XGBoost_in_domain": {
+          "brier": 0.009355,
+          "auc": 0.999439,
+          "f1": 0.9885,
+          "cohens_d": "10.153"
+        }
+      },
+      "defense_in_domain": {
+        "VERDICT_WEIGHT": {
+          "brier": 0.115679,
+          "auc": 0.998047,
+          "f1": 0.9153,
+          "cohens_d": 3.4023
+        },
+        "XGBoost_in_domain": {
+          "brier": 0.009355,
+          "auc": 0.999439,
+          "f1": 0.9885,
+          "cohens_d": "10.153"
+        }
+      }
+    },
+    "test_4_distribution_shift": {
+      "VERDICT_WEIGHT": {
+        "brier": 0.090841,
+        "auc": 0.999204,
+        "f1": 0.9495,
+        "cohens_d": 3.2521
+      },
+      "XGBoost": {
+        "brier": 0.001935,
+        "auc": 0.99993,
+        "f1": 0.9993,
+        "cohens_d": "20.6415"
+      },
+      "Logistic Reg": {
+        "brier": 0.005675,
+        "auc": 0.99996,
+        "f1": 0.9972,
+        "cohens_d": 14.2016
+      },
+      "Random Forest": {
+        "brier": 0.005131,
+        "auc": 0.99984,
+        "f1": 0.9965,
+        "cohens_d": 13.5802
+      },
+      "Gradient Boost": {
+        "brier": 0.001451,
+        "auc": 0.99994,
+        "f1": 0.9993,
+        "cohens_d": 21.7459
+      }
+    }
+  }
+}

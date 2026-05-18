@@ -1,0 +1,200 @@
+{
+  "vertical": "financial",
+  "display_name": "Financial Services / Fraud Detection",
+  "harness_version": "1.2.0",
+  "stream_tier": "government",
+  "gamma": 1.0,
+  "delta": 1.0,
+  "n": 10000,
+  "seed": 42,
+  "vertical_params": {
+    "sr_range": [
+      0.3,
+      0.98
+    ],
+    "lambda_decay": 0.231,
+    "cc_range": [
+      2,
+      4
+    ],
+    "n_sources": 10
+  },
+  "platform": {
+    "python": "3.14.4",
+    "numpy": "2.4.4",
+    "verdict_weight": "1.2.0",
+    "system": "Darwin",
+    "machine": "arm64"
+  },
+  "timing": {
+    "generation_sec": 0.271,
+    "scoring_sec": 0.735,
+    "throughput_per_sec": 13610.8
+  },
+  "halt_counts": {
+    "RIS": 1000,
+    "CPS": 1000,
+    "none": 8000
+  },
+  "vw_gov": {
+    "name": "VERDICT_WEIGHT_GOV",
+    "n_samples": 10000,
+    "threshold": 0.3,
+    "sensitivity": 0.9984,
+    "specificity": 0.0636,
+    "brier_score": 0.4485672677524999,
+    "reliability_rel": 0.21752413851440983,
+    "auc_roc": 0.88346364,
+    "mean_cw_adversarial": 0.009788567441465062,
+    "ci95_cw_adversarial": [
+      0.008862368419614143,
+      0.010680085782329695
+    ],
+    "mean_cw_legitimate": 0.061833676634379026,
+    "ci95_cw_legitimate": [
+      0.058498870211898375,
+      0.0652596464531707
+    ],
+    "cohens_d": -0.566410027305565,
+    "welch_t": -28.320501365278254,
+    "welch_p": 0.0
+  },
+  "baselines": {
+    "DS": {
+      "name": "DS",
+      "n_samples": 10000,
+      "threshold": 0.3,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "brier_score": 0.4851702236508847,
+      "reliability_rel": 0.23678258456561657,
+      "auc_roc": 0.56228272,
+      "mean_cw_adversarial": 0.9848661873037401,
+      "ci95_cw_adversarial": [
+        0.9844976880744004,
+        0.9852181620657465
+      ],
+      "mean_cw_legitimate": 0.9883400283887338,
+      "ci95_cw_legitimate": [
+        0.9880924205821057,
+        0.9885685270986138
+      ],
+      "cohens_d": -0.31506634252250587,
+      "welch_t": -15.753317126125292,
+      "welch_p": 0.0
+    },
+    "NB": {
+      "name": "NB",
+      "n_samples": 10000,
+      "threshold": 0.3,
+      "sensitivity": 0.8848,
+      "specificity": 0.1158,
+      "brier_score": 0.47586515444540756,
+      "reliability_rel": 0.22572039322285917,
+      "auc_roc": 0.5102777,
+      "mean_cw_adversarial": 0.09501326750410796,
+      "ci95_cw_adversarial": [
+        0.088192934322871,
+        0.10188827855958142
+      ],
+      "mean_cw_legitimate": 0.09631860643436209,
+      "ci95_cw_legitimate": [
+        0.08941925426250606,
+        0.10332527841676166
+      ],
+      "cohens_d": -0.00519878079727718,
+      "welch_t": -0.259939039863859,
+      "welch_p": 0.794910796590484
+    },
+    "SA": {
+      "name": "SA",
+      "n_samples": 10000,
+      "threshold": 0.3,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "brier_score": 0.24468128697151484,
+      "reliability_rel": 0.0172353606454222,
+      "auc_roc": 0.57861084,
+      "mean_cw_adversarial": 0.5542878864269943,
+      "ci95_cw_adversarial": [
+        0.5521128763347892,
+        0.5564352679187036
+      ],
+      "mean_cw_legitimate": 0.5833038869116075,
+      "ci95_cw_legitimate": [
+        0.5819992194779536,
+        0.5845049912237958
+      ],
+      "cohens_d": -0.44525380938393255,
+      "welch_t": -22.262690469196627,
+      "welch_p": 0.0
+    },
+    "MV": {
+      "name": "MV",
+      "n_samples": 10000,
+      "threshold": 0.3,
+      "sensitivity": 0.0622,
+      "specificity": 1.0,
+      "brier_score": 0.27899375,
+      "reliability_rel": 0.056610061417224654,
+      "auc_roc": 0.5954156,
+      "mean_cw_adversarial": 0.68915,
+      "ci95_cw_adversarial": [
+        0.68527375,
+        0.693
+      ],
+      "mean_cw_legitimate": 0.753,
+      "ci95_cw_legitimate": [
+        0.75235,
+        0.75382625
+      ],
+      "cohens_d": -0.6080237059328213,
+      "welch_t": -30.401185296641057,
+      "welch_p": 0.0
+    }
+  },
+  "per_attack_class": {
+    "legitimate": {
+      "n": 5000,
+      "mean_cw": 0.061833676634379026,
+      "std_cw": 0.12508385834588417,
+      "min_cw": 0.002837583848152192,
+      "max_cw": 0.7982378196716898
+    },
+    "AC-1": {
+      "n": 1000,
+      "mean_cw": 0.029176358988345443,
+      "std_cw": 0.060548142148727474,
+      "min_cw": 0.0009774863728449423,
+      "max_cw": 0.39698942670535436
+    },
+    "AC-2": {
+      "n": 1000,
+      "mean_cw": 0.01973726256340057,
+      "std_cw": 0.041899085932782194,
+      "min_cw": 0.0007838653195136736,
+      "max_cw": 0.2570459662537371
+    },
+    "AC-3": {
+      "n": 1000,
+      "mean_cw": 2.9215655579292628e-05,
+      "std_cw": 0.0003697487858541366,
+      "min_cw": 0.0,
+      "max_cw": 0.00864397869247607
+    },
+    "AC-4": {
+      "n": 1000,
+      "mean_cw": 0.0,
+      "std_cw": 0.0,
+      "min_cw": 0.0,
+      "max_cw": 0.0
+    },
+    "AC-5": {
+      "n": 1000,
+      "mean_cw": 0.0,
+      "std_cw": 0.0,
+      "min_cw": 0.0,
+      "max_cw": 0.0
+    }
+  }
+}
