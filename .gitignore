@@ -208,3 +208,14 @@ __marimo__/
 .DS_Store
 dist/
 *.egg-info/
+
+# =============================================================
+# VERDICT WEIGHT — PROPRIETARY / CONFIDENTIAL
+# These files contain business intelligence and must NEVER
+# be committed to the public repository.
+# =============================================================
+registries/
+*INTERNAL*
+*PRIVATE*
+*CUSTOMER*
+*_PRIVATE.*
