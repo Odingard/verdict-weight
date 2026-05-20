@@ -322,7 +322,7 @@ exact reproducer command → JSON output → git SHA), see
 
 VERDICT WEIGHT™ is a trademark of Six Sense Enterprise Services LLC (Odingard Security).
 USPTO Serial Number: 99747827.
-Patent Pending — Application #64/032,606.
+Patent Pending.
 
 © 2026 Six Sense Enterprise Services LLC. All rights reserved.
 
